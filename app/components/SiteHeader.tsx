@@ -1,17 +1,33 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { useTheme } from "../hooks/useTheme";
 
 type SiteHeaderProps = {
   active?: "work" | "about";
 };
 
+const SCROLL_THRESHOLD = 96;
+
 export default function SiteHeader({ active }: SiteHeaderProps) {
   const { dark, toggle, ready } = useTheme();
+  const [sidebar, setSidebar] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setSidebar(window.scrollY > SCROLL_THRESHOLD);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="home-topbar">
+    <header
+      className={`home-topbar${sidebar ? " home-topbar--sidebar" : " home-topbar--sticky"}`}
+    >
       <Link
         href="/"
         className="home-brand"
@@ -20,7 +36,7 @@ export default function SiteHeader({ active }: SiteHeaderProps) {
           window.location.href = "/";
         }}
       >
-        vrunda shah
+        {sidebar ? "vs" : "vrunda shah"}
       </Link>
 
       <nav className="nav-pill" aria-label="Main">
