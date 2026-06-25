@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Caveat, Instrument_Serif, Montserrat } from "next/font/google";
+import MicrosoftClarity from "./components/MicrosoftClarity";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -40,6 +42,8 @@ export default function RootLayout({
         className={`${montserrat.className} ${caveat.variable} ${instrumentSerif.variable}`}
       >
         {children}
+        <Analytics />
+        <MicrosoftClarity />
       </body>
     </html>
   );
