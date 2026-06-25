@@ -106,6 +106,13 @@ export default function HomeView() {
   const scrollY = useScrollY();
   const { dark } = useTheme();
   const [hasSketched, setHasSketched] = useState(false);
+  const [canSketch, setCanSketch] = useState(false);
+
+  useEffect(() => {
+    setCanSketch(
+      !window.matchMedia("(hover: none) and (pointer: coarse)").matches
+    );
+  }, []);
 
   return (
     <div className={`home${dark ? " home-dark" : ""}`}>
@@ -132,7 +139,7 @@ export default function HomeView() {
 
       <DissolveCanvas dark={dark} onDraw={() => setHasSketched(true)} />
 
-      {!hasSketched && (
+      {!hasSketched && canSketch && (
         <p className="sketch-hint" aria-hidden="true">
           sketch anywhere ✏️ — it fades away
         </p>

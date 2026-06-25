@@ -374,6 +374,20 @@ html[data-theme="dark"] body:has(.about-page) {
   cursor: var(--cursor-figma), crosshair;
 }
 
+@media (hover: none) and (pointer: coarse) {
+  .dissolve-canvas {
+    display: none;
+  }
+
+  .sketch-hint {
+    display: none;
+  }
+
+  .home-layer {
+    pointer-events: auto;
+  }
+}
+
 .sketch-hint {
   position: fixed;
   bottom: clamp(1.25rem, 3vh, 2rem);

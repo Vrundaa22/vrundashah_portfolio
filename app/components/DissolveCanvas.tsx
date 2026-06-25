@@ -1,6 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+
+function isTouchDevice() {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+}
 
 export default function DissolveCanvas({
   dark = false,
@@ -13,8 +18,15 @@ export default function DissolveCanvas({
   const drawingRef = useRef(false);
   const lastPointRef = useRef<{ x: number; y: number } | null>(null);
   const hasDrawnRef = useRef(false);
+  const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
+    setEnabled(!isTouchDevice());
+  }, []);
+
+  useEffect(() => {
+    if (!enabled) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -44,9 +56,11 @@ export default function DissolveCanvas({
       window.removeEventListener("resize", resize);
       cancelAnimationFrame(frameId);
     };
-  }, []);
+  }, [enabled]);
 
   useEffect(() => {
+    if (!enabled) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -78,6 +92,7 @@ export default function DissolveCanvas({
     };
 
     const pointerDown = (e: PointerEvent) => {
+      if (e.pointerType === "touch") return;
       drawingRef.current = true;
       lastPointRef.current = { x: e.clientX, y: e.clientY };
       noteDraw();
@@ -85,7 +100,7 @@ export default function DissolveCanvas({
     };
 
     const pointerMove = (e: PointerEvent) => {
-      if (!drawingRef.current) return;
+      if (!drawingRef.current || e.pointerType === "touch") return;
       drawLine(e.clientX, e.clientY);
       lastPointRef.current = { x: e.clientX, y: e.clientY };
       noteDraw();
@@ -94,7 +109,9 @@ export default function DissolveCanvas({
     const pointerUp = (e: PointerEvent) => {
       drawingRef.current = false;
       lastPointRef.current = null;
-      canvas.releasePointerCapture(e.pointerId);
+      if (canvas.hasPointerCapture(e.pointerId)) {
+        canvas.releasePointerCapture(e.pointerId);
+      }
     };
 
     canvas.addEventListener("pointerdown", pointerDown);
@@ -108,7 +125,9 @@ export default function DissolveCanvas({
       canvas.removeEventListener("pointerup", pointerUp);
       canvas.removeEventListener("pointercancel", pointerUp);
     };
-  }, [dark, onDraw]);
+  }, [dark, onDraw, enabled]);
+
+  if (!enabled) return null;
 
   return (
     <canvas
