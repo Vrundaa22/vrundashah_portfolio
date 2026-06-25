@@ -1,6 +1,7 @@
 "use client";
 
 import AboutCarousel from "../components/AboutCarousel";
+import AboutDayNotes from "../components/AboutDayNotes";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
 
@@ -57,6 +58,8 @@ export default function AboutPage() {
 
           <AboutCarousel />
         </div>
+
+        <AboutDayNotes />
 
         <SiteFooter />
       </div>
