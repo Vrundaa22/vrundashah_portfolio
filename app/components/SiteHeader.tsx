@@ -8,15 +8,15 @@ type SiteHeaderProps = {
   active?: "work" | "about";
 };
 
-const SCROLL_THRESHOLD = 96;
+const FLOAT_THRESHOLD = 80;
 
 export default function SiteHeader({ active }: SiteHeaderProps) {
   const { dark, toggle, ready } = useTheme();
-  const [sidebar, setSidebar] = useState(false);
+  const [floating, setFloating] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
-      setSidebar(window.scrollY > SCROLL_THRESHOLD);
+      setFloating(window.scrollY > FLOAT_THRESHOLD);
     };
 
     onScroll();
@@ -25,42 +25,38 @@ export default function SiteHeader({ active }: SiteHeaderProps) {
   }, []);
 
   return (
-    <header
-      className={`home-topbar${sidebar ? " home-topbar--sidebar" : " home-topbar--sticky"}`}
-    >
-      <Link
-        href="/"
-        className="home-brand"
-        onClick={(e) => {
-          e.preventDefault();
-          window.location.href = "/";
-        }}
-      >
-        {sidebar ? "vs" : "vrunda shah"}
+    <header className="home-topbar">
+      <Link href="/#home" className="home-brand">
+        vrunda shah
       </Link>
 
-      <nav className="nav-pill" aria-label="Main">
-        <Link href="/#home" className={active === "work" ? "nav-active" : undefined}>
-          Work
-        </Link>
-        <Link href="/about" className={active === "about" ? "nav-active" : undefined}>
-          About
-        </Link>
-        <a
-          href="https://drive.google.com/file/d/16vkGJUA0phzR8ltzjVlyBwKRZO7K3AA8/view?usp=sharing"
-          target="_blank"
-          rel="noopener noreferrer"
+      <div className="nav-pill-wrap">
+        <nav
+          className={`nav-pill${floating ? " nav-pill--floating" : ""}`}
+          aria-label="Main"
         >
-          Resume
-        </a>
-        <a
-          href="https://www.linkedin.com/in/vrunda22/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          LinkedIn ↗
-        </a>
-      </nav>
+          <Link href="/#home" className={active === "work" ? "nav-active" : undefined}>
+            Work
+          </Link>
+          <Link href="/about" className={active === "about" ? "nav-active" : undefined}>
+            About
+          </Link>
+          <a
+            href="https://drive.google.com/file/d/16vkGJUA0phzR8ltzjVlyBwKRZO7K3AA8/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Resume
+          </a>
+          <a
+            href="https://www.linkedin.com/in/vrunda22/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn ↗
+          </a>
+        </nav>
+      </div>
 
       <button
         type="button"

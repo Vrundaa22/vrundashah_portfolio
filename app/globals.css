@@ -424,6 +424,7 @@ html[data-theme="dark"] .sketch-hint {
 .home-layer button,
 .home-layer .project-row,
 .home-layer .nav-pill,
+.home-layer .nav-pill-wrap,
 .home-layer .theme-toggle,
 .home-layer .home-brand,
 .home-layer .home-topbar,
@@ -562,108 +563,22 @@ html[data-theme="dark"] .sky-orb-body {
   opacity: 0;
   transform: translateY(8px);
   pointer-events: auto;
-  transition:
-    background 0.35s ease,
-    border-color 0.35s ease,
-    box-shadow 0.35s ease,
-    border-radius 0.35s ease,
-    padding 0.35s ease;
 }
 
-.home-topbar--sticky {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  margin-bottom: clamp(2rem, 5vh, 3rem);
-  padding: 0.35rem 0;
-  background: rgba(252, 232, 236, 0.82);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(194, 94, 100, 0.06);
-}
-
-html[data-theme="dark"] .home-topbar--sticky {
-  background: rgba(18, 18, 22, 0.82);
-  border-bottom-color: rgba(255, 255, 255, 0.06);
-}
-
-body:has(.releaf-case) .home-topbar--sticky {
-  background: rgba(246, 245, 240, 0.9);
-  border-bottom-color: rgba(90, 143, 106, 0.1);
-}
-
-body:has(.saveup-case) .home-topbar--sticky {
-  background: rgba(244, 247, 251, 0.9);
-  border-bottom-color: rgba(59, 123, 203, 0.1);
-}
-
-body:has(.coming-soon-case) .home-topbar--sticky {
-  background: rgba(248, 248, 248, 0.9);
-}
-
-.home-topbar--sidebar {
-  position: fixed;
-  top: 50%;
-  left: clamp(0.65rem, 1.8vw, 1rem);
-  z-index: 50;
-  transform: translateY(-50%);
+.nav-pill-wrap {
+  justify-self: center;
+  min-height: 2.5rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 0.55rem;
-  width: auto;
-  min-height: 0;
-  margin: 0;
-  padding: 0.7rem 0.45rem;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.07);
-  animation: none;
-  opacity: 1;
+  justify-content: center;
 }
 
-html[data-theme="dark"] .home-topbar--sidebar {
-  background: rgba(24, 24, 28, 0.88);
-  border-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.35);
-}
-
-.home-topbar--sidebar .home-brand {
-  justify-self: center;
-  font-size: 1.15rem;
-  letter-spacing: 0.04em;
-  padding: 0.15rem 0;
-}
-
-.home-topbar--sidebar .nav-pill {
-  flex-direction: column;
-  align-items: stretch;
-  gap: 0.12rem;
-  padding: 0.35rem;
-  border-radius: 14px;
-  box-shadow: none;
-  background: rgba(255, 255, 255, 0.55);
-}
-
-html[data-theme="dark"] .home-topbar--sidebar .nav-pill {
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.home-topbar--sidebar .nav-pill a {
-  padding: 0.42rem 0.55rem;
-  font-size: 0.68rem;
-  text-align: center;
-  line-height: 1.25;
-}
-
-.home-topbar--sidebar .theme-toggle {
-  justify-self: center;
-  width: 2rem;
-  height: 2rem;
-  font-size: 0.85rem;
+.nav-pill--floating {
+  position: fixed;
+  top: clamp(0.75rem, 2vh, 1.15rem);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
 }
 
 .home-brand {
@@ -1291,43 +1206,6 @@ html[data-theme="dark"] .live-status-mood {
     justify-items: center;
   }
 
-  .home-topbar--sidebar {
-    top: auto;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: calc(100vw - 1.5rem);
-    padding: 0.5rem 0.65rem;
-    border-radius: 999px;
-  }
-
-  .home-topbar--sidebar .home-brand {
-    display: none;
-  }
-
-  .home-topbar--sidebar .nav-pill {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    background: transparent;
-    border: none;
-    padding: 0;
-    gap: 0.08rem;
-  }
-
-  .home-topbar--sidebar .nav-pill a {
-    padding: 0.35rem 0.55rem;
-    font-size: 0.65rem;
-  }
-
-  .home-topbar--sidebar .theme-toggle {
-    width: 1.85rem;
-    height: 1.85rem;
-  }
-
   .home-brand,
   .theme-toggle {
     justify-self: center;
@@ -1337,10 +1215,6 @@ html[data-theme="dark"] .live-status-mood {
     position: absolute;
     top: 0;
     right: 0;
-  }
-
-  .home-topbar--sticky .theme-toggle {
-    position: static;
   }
 }
 
