@@ -33,7 +33,7 @@ export default function SiteFooter() {
       </nav>
 
       <p className="site-footer-credit">
-        made with <FooterHeart /> by vrunda · built with claude + figma
+        made with <FooterHeart /> by vrunda
       </p>
     </footer>
   );
