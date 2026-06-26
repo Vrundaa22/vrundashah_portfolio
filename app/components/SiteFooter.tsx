@@ -36,7 +36,7 @@ export default function SiteFooter() {
         <p className="site-footer-credit">
           made with <FooterHeart /> by vrunda
         </p>
-        <p className="site-footer-copy">© 2026</p>
+        <p className="site-footer-copy">© 2026 Vrunda Shah&apos;s Portfolio</p>
       </div>
     </footer>
   );
