@@ -1355,7 +1355,8 @@ html[data-theme="dark"] .site-footer-heart {
 .about-layer a,
 .about-layer button,
 .about-layer .home-topbar,
-.about-layer .about-sticky {
+.about-layer .about-sticker,
+.about-layer .about-polaroids {
   pointer-events: auto;
 }
 
@@ -1580,182 +1581,137 @@ html[data-theme="dark"] .about-day-frame-label {
   background: #c25e64;
 }
 
-.about-day-cluster {
+.about-day-scene {
   position: relative;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.85rem 0.65rem;
-  min-height: clamp(280px, 38vw, 340px);
-  padding: 0.5rem;
+  min-height: clamp(300px, 42vw, 380px);
+  margin-top: 0.25rem;
 }
 
-.about-sticky {
-  position: relative;
+.about-sticker--bg {
+  right: 4%;
+  bottom: 8%;
+  width: min(52%, 190px);
+  padding: 0.4rem 0.55rem 0.5rem;
+  opacity: 0.68;
+  z-index: 0;
+  filter: saturate(0.85) blur(0.2px);
+}
+
+.about-sticker--bg.about-sticker--active,
+.about-sticker--bg:hover {
+  opacity: 0.92;
+  filter: saturate(1) blur(0);
+}
+
+.about-sticker {
+  position: absolute;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 0.15rem;
-  padding: 0.75rem 0.85rem 0.9rem;
-  border: none;
-  border-radius: 2px;
-  text-align: left;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.55rem 0.65rem 0.65rem;
+  border: 2.5px solid #fff;
+  border-radius: 10px;
+  background: #fff;
   cursor: var(--cursor-figma), pointer;
   box-shadow:
-    1px 2px 0 rgba(0, 0, 0, 0.06),
-    2px 4px 12px rgba(0, 0, 0, 0.07);
-  transform: translate(var(--sticky-x, 0), var(--sticky-y, 0))
-    rotate(var(--sticky-rotate, 0deg));
+    0 1px 0 rgba(0, 0, 0, 0.04),
+    2px 4px 14px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(0, 0, 0, 0.04);
+  transform: rotate(var(--sticker-rotate, 0deg));
   transition:
-    transform 0.28s ease,
-    box-shadow 0.28s ease,
-    opacity 0.28s ease,
-    filter 0.28s ease;
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.25s ease,
+    filter 0.25s ease,
+    z-index 0s;
+  z-index: 1;
 }
 
-.about-sticky-tag {
-  font-family: ui-monospace, "SF Mono", Monaco, monospace;
-  font-size: 0.55rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: lowercase;
-  opacity: 0.55;
-  padding: 0.12rem 0.35rem;
-  border-radius: 3px;
-  background: rgba(0, 0, 0, 0.05);
-}
-
-.about-sticky:nth-child(1) {
-  grid-column: 1;
-  grid-row: 1;
-}
-
-.about-sticky:nth-child(2) {
-  grid-column: 2;
-  grid-row: 1;
-  margin-top: 1.25rem;
-}
-
-.about-sticky:nth-child(3) {
-  grid-column: 1;
-  grid-row: 2;
-}
-
-.about-sticky:nth-child(4) {
-  grid-column: 2;
-  grid-row: 2;
-  margin-top: -0.5rem;
-}
-
-.about-sticky:nth-child(5) {
-  grid-column: 1 / -1;
-  grid-row: 3;
-  max-width: 52%;
-  justify-self: center;
-  margin-top: -0.25rem;
-}
-
-.about-sticky--yellow {
-  background: linear-gradient(165deg, #fff9c4 0%, #fff176 100%);
-  color: #5c4a00;
-}
-
-.about-sticky--pink {
-  background: linear-gradient(165deg, #fce4ec 0%, #f8bbd0 100%);
-  color: #6b3044;
-}
-
-.about-sticky--mint {
-  background: linear-gradient(165deg, #e8f5e9 0%, #c8e6c9 100%);
-  color: #2e5032;
-}
-
-.about-sticky--peach {
-  background: linear-gradient(165deg, #ffe0b2 0%, #ffcc80 100%);
-  color: #6b4423;
-}
-
-.about-sticky--lavender {
-  background: linear-gradient(165deg, #ede7f6 0%, #d1c4e9 100%);
-  color: #4a3d66;
-}
-
-.about-sticky--locked {
-  opacity: 0.42;
-  filter: saturate(0.65);
-  cursor: not-allowed;
-  transform: translate(var(--sticky-x, 0), var(--sticky-y, 0))
-    rotate(var(--sticky-rotate, 0deg)) scale(0.97);
-}
-
-.about-sticky--next {
+html[data-theme="dark"] .about-sticker {
+  background: #2e2e34;
+  border-color: rgba(255, 255, 255, 0.92);
   box-shadow:
-    2px 3px 8px rgba(0, 0, 0, 0.08),
+    0 1px 0 rgba(0, 0, 0, 0.2),
+    2px 4px 16px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.about-sticker--active,
+.about-sticker:hover {
+  transform: rotate(var(--sticker-rotate, 0deg)) scale(1.04) translateY(-3px);
+  box-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.04),
+    4px 10px 22px rgba(0, 0, 0, 0.14),
     0 0 0 2px rgba(194, 94, 100, 0.35);
-  animation: stickyPulse 2.2s ease-in-out infinite;
+  z-index: 3;
 }
 
-@keyframes stickyPulse {
-  0%,
-  100% {
-    box-shadow:
-      2px 3px 8px rgba(0, 0, 0, 0.08),
-      0 0 0 2px rgba(194, 94, 100, 0.25);
-  }
-  50% {
-    box-shadow:
-      2px 3px 12px rgba(0, 0, 0, 0.1),
-      0 0 0 3px rgba(194, 94, 100, 0.45);
-  }
+.about-sticker--music {
+  top: 8%;
+  left: 4%;
+  width: min(38%, 130px);
 }
 
-.about-sticky--read:not(.about-sticky--active) {
-  filter: saturate(0.88);
+.about-sticker--breakfast {
+  top: 6%;
+  right: 6%;
+  width: min(42%, 150px);
 }
 
-.about-sticky--active {
-  transform: translate(var(--sticky-x, 0), calc(var(--sticky-y, 0) - 4px))
-    rotate(var(--sticky-rotate, 0deg)) scale(1.03);
-  box-shadow:
-    3px 6px 16px rgba(0, 0, 0, 0.12),
-    inset 0 -24px 20px -20px rgba(0, 0, 0, 0.04);
-  z-index: 2;
+.about-sticker--laptop {
+  bottom: 10%;
+  left: 8%;
+  width: min(48%, 168px);
 }
 
-.about-sticky:not(.about-sticky--locked):hover {
-  transform: translate(var(--sticky-x, 0), calc(var(--sticky-y, 0) - 3px))
-    rotate(var(--sticky-rotate, 0deg)) scale(1.02);
+.about-sticker--cozy {
+  right: 8%;
+  bottom: 14%;
 }
 
-.about-sticky-time {
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  opacity: 0.65;
+.about-sticker-art {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
-.about-sticky-label {
-  font-family: var(--font-caveat), cursive;
-  font-size: 1.1rem;
-  font-weight: 600;
-  line-height: 1.15;
+.about-sticker-caption {
+  margin: 0;
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #666;
+  text-align: center;
+  line-height: 1.25;
 }
 
-.about-sticky-teaser {
-  font-size: 0.65rem;
-  line-height: 1.45;
-  opacity: 0.72;
-  font-style: italic;
+html[data-theme="dark"] .about-sticker-caption {
+  color: #bbb;
 }
 
-.about-sticky-check {
-  position: absolute;
-  top: 0.4rem;
-  right: 0.45rem;
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: rgba(194, 94, 100, 0.7);
-  line-height: 1;
+.about-sticker-tag {
+  font-family: ui-monospace, "SF Mono", Monaco, monospace;
+  font-size: 0.52rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  color: #888;
+  white-space: nowrap;
+}
+
+html[data-theme="dark"] .about-sticker-tag {
+  color: #aaa;
+}
+
+.about-sticker--music .about-sticker-tag,
+.about-sticker--breakfast .about-sticker-tag,
+.about-sticker--laptop .about-sticker-tag {
+  color: #c25e64;
+}
+
+.about-sticker--bg .about-sticker-tag {
+  opacity: 0.75;
 }
 
 .about-day-inspector {
@@ -1886,6 +1842,156 @@ html[data-theme="dark"] .about-day-detail-empty {
 
 html[data-theme="dark"] .about-day-detail-hint--done {
   color: #666;
+}
+
+/* ── About polaroids ── */
+.about-polaroids {
+  width: 100%;
+  max-width: min(920px, 100%);
+  margin: clamp(2rem, 5vh, 3rem) auto 0;
+  padding: 0 clamp(0.5rem, 2vw, 1rem);
+  padding-left: clamp(0.75rem, 2.5vw, 1.75rem);
+}
+
+.about-polaroids-intro {
+  margin-bottom: clamp(1rem, 2.5vh, 1.35rem);
+}
+
+.about-polaroids-eyebrow {
+  margin: 0 0 0.25rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #999;
+}
+
+html[data-theme="dark"] .about-polaroids-eyebrow {
+  color: #777;
+}
+
+.about-polaroids-lead {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #999;
+  letter-spacing: 0.02em;
+}
+
+html[data-theme="dark"] .about-polaroids-lead {
+  color: #777;
+}
+
+.about-polaroids-rail {
+  position: relative;
+  margin: 0 calc(-1 * clamp(0.5rem, 2vw, 1rem));
+  padding: 0.5rem 0 1.25rem;
+}
+
+.about-polaroids-rail::before,
+.about-polaroids-rail::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 1.25rem;
+  width: clamp(1.5rem, 5vw, 3rem);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.about-polaroids-rail::before {
+  left: 0;
+  background: linear-gradient(90deg, #f8f6f4 15%, transparent);
+}
+
+.about-polaroids-rail::after {
+  right: 0;
+  background: linear-gradient(270deg, #f8f6f4 15%, transparent);
+}
+
+html[data-theme="dark"] .about-polaroids-rail::before {
+  background: linear-gradient(90deg, #111114 15%, transparent);
+}
+
+html[data-theme="dark"] .about-polaroids-rail::after {
+  background: linear-gradient(270deg, #111114 15%, transparent);
+}
+
+.about-polaroids-track {
+  display: flex;
+  gap: clamp(0.85rem, 2.5vw, 1.25rem);
+  padding: 0.75rem clamp(0.75rem, 3vw, 1.5rem) 0.5rem;
+  overflow-x: auto;
+  overflow-y: visible;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: clamp(0.75rem, 3vw, 1.5rem);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.about-polaroids-track::-webkit-scrollbar {
+  display: none;
+}
+
+.about-polaroid {
+  flex: 0 0 auto;
+  width: clamp(148px, 28vw, 190px);
+  margin: 0;
+  padding: 0.55rem 0.55rem 0.85rem;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.04),
+    2px 5px 18px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(0, 0, 0, 0.04);
+  transform: rotate(var(--polaroid-rotate, 0deg));
+  scroll-snap-align: start;
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+html[data-theme="dark"] .about-polaroid {
+  background: #f2f2f4;
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.15),
+    2px 5px 20px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.about-polaroid:hover {
+  transform: rotate(var(--polaroid-rotate, 0deg)) translateY(-4px) scale(1.02);
+  box-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.04),
+    6px 14px 28px rgba(0, 0, 0, 0.14),
+    0 0 0 1px rgba(194, 94, 100, 0.12);
+  z-index: 1;
+}
+
+.about-polaroid-photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #e8e8e8;
+}
+
+.about-polaroid-img {
+  object-fit: cover;
+}
+
+.about-polaroid-caption {
+  margin: 0.55rem 0 0;
+  padding: 0 0.15rem;
+  font-family: var(--font-caveat), cursive;
+  font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: #444;
+  text-align: center;
+}
+
+html[data-theme="dark"] .about-polaroid-caption {
+  color: #333;
 }
 
 /* ── About carousel ── */
@@ -2051,20 +2157,29 @@ html[data-theme="dark"] .carousel-sticker {
     max-width: min(340px, 90vw);
   }
 
-  .about-day-cluster {
-    grid-template-columns: 1fr;
+  .about-day-scene {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
     min-height: auto;
+    padding-bottom: 0.5rem;
   }
 
-  .about-sticky:nth-child(n) {
-    grid-column: 1;
-    grid-row: auto;
-    margin-top: 0;
-    max-width: 100%;
+  .about-sticker {
+    position: relative;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    max-width: none;
   }
 
-  .about-sticky:nth-child(5) {
-    max-width: 100%;
+  .about-sticker--cozy {
+    grid-column: 1 / -1;
+    max-width: 72% !important;
+    justify-self: center;
+    opacity: 0.88;
   }
 }
 

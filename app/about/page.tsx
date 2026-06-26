@@ -2,6 +2,7 @@
 
 import AboutCarousel from "../components/AboutCarousel";
 import AboutDayNotes from "../components/AboutDayNotes";
+import AboutPolaroids from "../components/AboutPolaroids";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
 
@@ -60,6 +61,8 @@ export default function AboutPage() {
         </div>
 
         <AboutDayNotes />
+
+        <AboutPolaroids />
 
         <SiteFooter />
       </div>
