@@ -154,7 +154,7 @@ export default function HomeView() {
             <span className="hero-name">Vrunda</span>
           </p>
           <h1 className="hero-headline">
-            i love turning everyday problems into{" "}
+            I love turning everyday problems into{" "}
             <em>fun, seamless</em> and <em>impactful</em> product experiences.
           </h1>
 
