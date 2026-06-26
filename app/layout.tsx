@@ -46,14 +46,6 @@ export const metadata: Metadata = {
     description: siteDescription,
     url: "/",
     siteName: "Vrunda Shah",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1024,
-        height: 535,
-        alt: "Vrunda Shah portfolio — product design",
-      },
-    ],
     locale: "en_US",
     type: "website",
   },
@@ -61,7 +53,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Vrunda Shah — Product Designer",
     description: siteDescription,
-    images: ["/og-image.jpg"],
   },
 };
 

@@ -1307,8 +1307,16 @@ html[data-theme="dark"] .site-footer-tab a:hover {
   background: rgba(255, 255, 255, 0.08);
 }
 
+.site-footer-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+}
+
 .site-footer-credit {
-  margin: 0.5rem 0 0;
+  margin: 0;
   display: inline-flex;
   flex-wrap: wrap;
   align-items: center;
@@ -1322,6 +1330,18 @@ html[data-theme="dark"] .site-footer-tab a:hover {
 
 html[data-theme="dark"] .site-footer-credit {
   color: #666;
+}
+
+.site-footer-copy {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: #bbb;
+}
+
+html[data-theme="dark"] .site-footer-copy {
+  color: #555;
 }
 
 .site-footer-heart {

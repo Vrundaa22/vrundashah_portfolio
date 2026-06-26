@@ -32,9 +32,12 @@ export default function SiteFooter() {
         <a href="mailto:vrundashah22@gmail.com">Email</a>
       </nav>
 
-      <p className="site-footer-credit">
-        made with <FooterHeart /> by vrunda
-      </p>
+      <div className="site-footer-meta">
+        <p className="site-footer-credit">
+          made with <FooterHeart /> by vrunda
+        </p>
+        <p className="site-footer-copy">© 2026</p>
+      </div>
     </footer>
   );
 }
