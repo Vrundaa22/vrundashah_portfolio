@@ -15,10 +15,10 @@ const SLIDES: PhotoSlide[] = [
   {
     id: "me",
     src: "/about/vrunda.jpg",
-    alt: "Vrunda smiling on a pier at sunset with sailboats behind her",
+    alt: "Vrunda smiling in a red top and jeans at a sunny Toronto park",
     label: "hi, it's me",
-    objectPosition: "50% 42%",
-    scale: 1.2,
+    objectPosition: "48% 54%",
+    scale: 1.04,
   },
   {
     id: "sunset",
