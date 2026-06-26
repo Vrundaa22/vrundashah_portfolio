@@ -1334,14 +1334,14 @@ html[data-theme="dark"] .site-footer-credit {
 
 .site-footer-copy {
   margin: 0;
-  font-size: 0.66rem;
-  font-weight: 300;
+  font-size: 0.74rem;
+  font-weight: 400;
   letter-spacing: 0.04em;
-  color: #ccc;
+  color: #999;
 }
 
 html[data-theme="dark"] .site-footer-copy {
-  color: #4a4a4e;
+  color: #777;
 }
 
 .site-footer-heart {
