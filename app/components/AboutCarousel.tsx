@@ -14,10 +14,11 @@ type PhotoSlide = {
 const SLIDES: PhotoSlide[] = [
   {
     id: "me",
-    src: "/about/vrunda.png",
-    alt: "Vrunda smiling in a red dress at a Toronto park with the CN Tower behind her",
+    src: "/about/vrunda.jpg",
+    alt: "Vrunda smiling in a red top and jeans at a sunny Toronto park",
     label: "hi, it's me",
-    objectPosition: "55% 35%",
+    objectPosition: "50% 58%",
+    scale: 1.12,
   },
   {
     id: "sunset",
