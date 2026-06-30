@@ -20,6 +20,18 @@ const PROJECTS = [
     href: "/saveup",
   },
   {
+    id: "content-design",
+    title: "Content Design Samples",
+    tag: "content design",
+    variant: "content-design" as const,
+    description:
+      "UX writing across AI onboarding guides, product help & FAQ, and complex financial scenarios—clear copy that helps users move forward with confidence.",
+    image: "/projects/content-design/cover-preview.png",
+    href: "/content-design",
+    keywords: ["content design", "UX writing", "onboarding"],
+    delay: "0.42s",
+  },
+  {
     id: "releaf",
     title: "Releaf",
     tag: "case study",
