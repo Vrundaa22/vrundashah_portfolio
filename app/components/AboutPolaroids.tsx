@@ -13,6 +13,14 @@ type Polaroid = {
 
 const POLAROIDS: Polaroid[] = [
   {
+    id: "museum",
+    src: "/about/life/museum.jpg",
+    alt: "Walking through an art museum in front of a large painting",
+    caption: "museum",
+    rotate: -3,
+    objectPosition: "58% 55%",
+  },
+  {
     id: "figma",
     src: "/about/life/figma.png",
     alt: "MacBook open to a Figma design session",

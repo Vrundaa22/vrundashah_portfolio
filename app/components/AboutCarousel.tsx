@@ -15,10 +15,18 @@ const SLIDES: PhotoSlide[] = [
   {
     id: "me",
     src: "/about/vrunda.jpg",
-    alt: "Vrunda smiling in a red top and jeans at a sunny Toronto park",
+    alt: "Vrunda waving in a red top at a sunny Toronto park",
     label: "hi, it's me",
-    objectPosition: "48% 52%",
-    scale: 1.09,
+    objectPosition: "50% 48%",
+    scale: 1.06,
+  },
+  {
+    id: "lakeside",
+    src: "/about/lakeside.jpg",
+    alt: "Vrunda by the water on a rocky lakeshore",
+    label: "by the water",
+    objectPosition: "42% 45%",
+    scale: 1.08,
   },
   {
     id: "sunset",
