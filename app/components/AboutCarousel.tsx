@@ -17,8 +17,8 @@ const SLIDES: PhotoSlide[] = [
     src: "/about/vrunda.jpg",
     alt: "Vrunda waving in a red top at a sunny Toronto park",
     label: "hi, it's me",
-    objectPosition: "50% 48%",
-    scale: 1.06,
+    objectPosition: "50% 54%",
+    scale: 1.0,
   },
   {
     id: "lakeside",
