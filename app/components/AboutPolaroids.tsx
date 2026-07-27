@@ -21,6 +21,14 @@ const POLAROIDS: Polaroid[] = [
     objectPosition: "58% 55%",
   },
   {
+    id: "cake",
+    src: "/about/life/cake.jpg",
+    alt: "Homemade chocolate hazelnut cake on a white cake stand",
+    caption: "homemade chocolate hazelnut cake",
+    rotate: 2.5,
+    objectPosition: "center 42%",
+  },
+  {
     id: "figma",
     src: "/about/life/figma.png",
     alt: "MacBook open to a Figma design session",
