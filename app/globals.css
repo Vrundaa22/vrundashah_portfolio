@@ -1086,10 +1086,17 @@ html[data-theme="dark"] .project-row--content-design .project-row-tag {
   object-position: center;
 }
 
+.project-row--content-design .project-row-visual {
+  background: #faf8f5;
+}
+
+html[data-theme="dark"] .project-row--content-design .project-row-visual {
+  background: #2a2622;
+}
+
 .project-row--content-design .project-row-visual img {
-  object-position: 50% 22%;
-  transform: scale(0.96);
-  transform-origin: 50% 28%;
+  object-fit: contain;
+  object-position: center;
 }
 
 .project-row-visual-fill {
