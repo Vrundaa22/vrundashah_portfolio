@@ -38,7 +38,7 @@ const PROJECTS = [
     variant: "releaf" as const,
     description:
       "IBD-focused digital health experience that helps users identify symptom patterns and triggers by turning fragmented daily data into meaningful, actionable insights.",
-    image: "/projects/releaf-cover.png",
+    image: "/projects/releaf-cover-mockups.png",
     href: "/releaf",
     keywords: ["product design", "health", "AI"],
     delay: "0.5s",

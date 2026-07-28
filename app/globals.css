@@ -1099,6 +1099,19 @@ html[data-theme="dark"] .project-row--content-design .project-row-visual {
   object-position: center;
 }
 
+.project-row--releaf .project-row-visual {
+  background: linear-gradient(135deg, #5f9f75 0%, #4a8860 100%);
+}
+
+html[data-theme="dark"] .project-row--releaf .project-row-visual {
+  background: linear-gradient(135deg, #2a4032 0%, #223428 100%);
+}
+
+.project-row--releaf .project-row-visual img {
+  object-fit: contain;
+  object-position: center;
+}
+
 .project-row-visual-fill {
   position: relative;
 }
