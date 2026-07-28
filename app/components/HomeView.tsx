@@ -205,7 +205,7 @@ export default function HomeView() {
             </div>
           </div>
 
-          <div className="project-list">
+          <div className="project-list project-list--grid">
             {PROJECTS.map((project) => (
               <a
                 key={project.id}

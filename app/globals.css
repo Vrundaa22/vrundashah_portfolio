@@ -847,12 +847,45 @@ html[data-theme="dark"] .work-scroll-arrow {
   color: #e88a90;
 }
 
-/* Stacked wide project rows */
+/* Project grid */
 .project-list {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
+
+.project-list--grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.project-list--grid .project-row {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto minmax(0, 1fr);
+  aspect-ratio: 1 / 1;
+  padding: 1.25rem 1.25rem 1.35rem;
+  gap: 0.85rem;
+}
+
+.project-list--grid .project-row-copy {
+  justify-content: flex-start;
+  padding-right: 0;
+}
+
+.project-list--grid .project-row-title {
+  font-size: clamp(1.15rem, 3vw, 1.45rem);
+}
+
+.project-list--grid .project-row-desc {
+  -webkit-line-clamp: 2;
+}
+
+.project-list--grid .project-row-visual {
+  min-height: 0;
+}
+
+/* Stacked wide project rows */
 
 .project-row {
   position: relative;
@@ -1231,6 +1264,14 @@ html[data-theme="dark"] .live-status-mood {
 }
 
 @media (max-width: 720px) {
+  .project-list--grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-list--grid .project-row {
+    aspect-ratio: auto;
+  }
+
   .project-row {
     grid-template-columns: 1fr;
     gap: 1.15rem;
