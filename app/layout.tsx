@@ -1,5 +1,5 @@
+import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/next";
 import { Caveat, Instrument_Serif, Montserrat } from "next/font/google";
 import MicrosoftClarity from "./components/MicrosoftClarity";
 import "./globals.css";
@@ -21,39 +21,9 @@ const instrumentSerif = Instrument_Serif({
   variable: "--font-instrument",
 });
 
-function getSiteUrl() {
-  if (process.env.NEXT_PUBLIC_SITE_URL) {
-    return process.env.NEXT_PUBLIC_SITE_URL;
-  }
-  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
-    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
-  }
-  if (process.env.VERCEL_URL) {
-    return `https://${process.env.VERCEL_URL}`;
-  }
-  return "http://localhost:3000";
-}
-
-const siteDescription =
-  "I love turning everyday problems into fun, seamless and impactful product experiences.";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(getSiteUrl()),
-  title: "Vrunda Shah — Product Designer",
-  description: siteDescription,
-  openGraph: {
-    title: "Vrunda Shah — Product Designer",
-    description: siteDescription,
-    url: "/",
-    siteName: "Vrunda Shah",
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Vrunda Shah — Product Designer",
-    description: siteDescription,
-  },
+  title: "Vrunda",
+  description: "Portfolio",
 };
 
 export default function RootLayout({
@@ -72,7 +42,6 @@ export default function RootLayout({
         className={`${montserrat.className} ${caveat.variable} ${instrumentSerif.variable}`}
       >
         {children}
-        <Analytics />
         <MicrosoftClarity />
       </body>
     </html>
