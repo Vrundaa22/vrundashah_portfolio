@@ -30,8 +30,27 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Vrunda",
-  description: "Portfolio",
+  metadataBase: new URL(
+    process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000"
+  ),
+  title: "Vrunda Shah — Product Designer",
+  description:
+    "Product design portfolio — case studies, about, and work from Vrunda Shah.",
+  openGraph: {
+    title: "Vrunda Shah — Product Designer",
+    description:
+      "Product design portfolio — case studies, about, and work from Vrunda Shah.",
+    type: "website",
+    siteName: "Vrunda Shah",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Vrunda Shah — Product Designer",
+    description:
+      "Product design portfolio — case studies, about, and work from Vrunda Shah.",
+  },
 };
 
 export default function RootLayout({
