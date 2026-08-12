@@ -29,12 +29,29 @@ const instrumentSerif = Instrument_Serif({
   variable: "--font-instrument",
 });
 
+function getSiteUrl() {
+  if (process.env.NEXT_PUBLIC_SITE_URL) {
+    return process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "");
+  }
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  }
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+  return "http://localhost:3000";
+}
+
+const siteUrl = getSiteUrl();
+const ogImage = {
+  url: "/og-image.png",
+  width: 1200,
+  height: 630,
+  alt: "Vrunda Shah — Product Designer portfolio homepage",
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : "http://localhost:3000"
-  ),
+  metadataBase: new URL(siteUrl),
   title: "Vrunda Shah — Product Designer",
   description:
     "Product design portfolio — case studies, about, and work from Vrunda Shah.",
@@ -44,12 +61,15 @@ export const metadata: Metadata = {
       "Product design portfolio — case studies, about, and work from Vrunda Shah.",
     type: "website",
     siteName: "Vrunda Shah",
+    url: siteUrl,
+    images: [ogImage],
   },
   twitter: {
     card: "summary_large_image",
     title: "Vrunda Shah — Product Designer",
     description:
       "Product design portfolio — case studies, about, and work from Vrunda Shah.",
+    images: [ogImage.url],
   },
 };
 
