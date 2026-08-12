@@ -127,10 +127,6 @@ export default function HomeView() {
                 open to product experiences
               </span>
             </p>
-            <p className="hero-status-sub">
-              Incoming @{" "}
-              <span className="hero-brand hero-brand--scotia">Scotiabank</span>
-            </p>
           </div>
 
           <HeroClicks />
