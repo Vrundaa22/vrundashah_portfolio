@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import ScrollGradientLines from "./ScrollGradientLines";
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 
@@ -18,10 +19,15 @@ export default function ComingSoonCaseStudy({
   blurb = "I'm still putting the finishing touches on this one — documenting the process, polishing screens, and writing it all up. Check back soon!",
 }: ComingSoonCaseStudyProps) {
   return (
-    <div className={`coming-soon-case coming-soon-case--${accent}`}>
+    <div
+      className={`home home--elegant case-study-page case-study-page--${accent === "outlook" ? "outlook" : "coming-soon"}`}
+    >
+      <ScrollGradientLines theme={accent === "outlook" ? "outlook" : "content-design"} />
+
+      <div className={`coming-soon-case coming-soon-case--${accent}`}>
       <header className="coming-soon-hero">
         <div className="coming-soon-nav">
-          <SiteHeader active="work" />
+          <SiteHeader active="work" variant="elegant" />
         </div>
 
         <div className="coming-soon-content">
@@ -43,6 +49,7 @@ export default function ComingSoonCaseStudy({
       </header>
 
       <SiteFooter />
+      </div>
     </div>
   );
 }

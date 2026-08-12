@@ -1,5 +1,6 @@
 "use client";
 
+import ScrollGradientLines from "../components/ScrollGradientLines";
 import AboutCarousel from "../components/AboutCarousel";
 import AboutDayNotes from "../components/AboutDayNotes";
 import AboutPolaroids from "../components/AboutPolaroids";
@@ -8,9 +9,11 @@ import SiteFooter from "../components/SiteFooter";
 
 export default function AboutPage() {
   return (
-    <div className="about-page">
-      <div className="about-layer">
-        <SiteHeader active="about" />
+    <div className="home home--elegant about-page">
+      <ScrollGradientLines />
+
+      <div className="home-layer home-layer--elegant about-layer">
+        <SiteHeader active="about" variant="elegant" />
 
         <div className="about-layout">
           <article className="about-copy">
@@ -35,7 +38,7 @@ export default function AboutPage() {
               RBC. I&apos;ve worked on visual assets, design systems, and the
               AI-powered tool{" "}
               <strong>RBC SaveUp</strong>. I&apos;m currently seeking{" "}
-              <strong>Fall 2026 product opportunities</strong>.
+              <strong>Winter 2027 product opportunities</strong>.
             </p>
 
             <p className="about-text">

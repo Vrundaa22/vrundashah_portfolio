@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import ScrollGradientLines from "./ScrollGradientLines";
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 
@@ -64,12 +65,15 @@ export default function ReleafCaseStudy() {
   }, []);
 
   return (
-    <div className="releaf-case">
+    <div className="home home--elegant case-study-page case-study-page--releaf">
+      <ScrollGradientLines theme="releaf" />
+
+      <div className="releaf-case">
       <header className="releaf-hero-banner">
         <div
           className={`releaf-sticky-nav${navSolid ? " releaf-sticky-nav-solid" : ""}`}
         >
-          <SiteHeader active="work" />
+          <SiteHeader active="work" variant="elegant" />
         </div>
 
         <div className="releaf-hero-content">
@@ -312,6 +316,7 @@ export default function ReleafCaseStudy() {
       </div>
 
       <SiteFooter />
+      </div>
     </div>
   );
 }

@@ -9,6 +9,7 @@ type PhotoSlide = {
   label: string;
   objectPosition?: string;
   scale?: number;
+  vibe?: string;
 };
 
 const SLIDES: PhotoSlide[] = [
@@ -19,6 +20,23 @@ const SLIDES: PhotoSlide[] = [
     label: "hi, it's me",
     objectPosition: "50% 54%",
     scale: 1.0,
+    vibe: "that's me :)",
+  },
+  {
+    id: "headshot",
+    src: "/about/headshot.png",
+    alt: "Vrunda smiling in a white top, professional headshot",
+    label: "headshot",
+    objectPosition: "50% 22%",
+    vibe: "hire me pls",
+  },
+  {
+    id: "central-park",
+    src: "/about/central-park.png",
+    alt: "Vrunda standing on rocks in Central Park with the NYC skyline behind her",
+    label: "central park, nyc",
+    objectPosition: "50% 38%",
+    vibe: "nyc girl era",
   },
   {
     id: "lakeside",
@@ -27,6 +45,7 @@ const SLIDES: PhotoSlide[] = [
     label: "by the water",
     objectPosition: "42% 45%",
     scale: 1.08,
+    vibe: "touch grass",
   },
   {
     id: "sunset",
@@ -34,6 +53,7 @@ const SLIDES: PhotoSlide[] = [
     alt: "Vrunda walking on the beach at sunset",
     label: "sunset person",
     objectPosition: "center 20%",
+    vibe: "golden hour",
   },
   {
     id: "hockey",
@@ -41,6 +61,7 @@ const SLIDES: PhotoSlide[] = [
     alt: "Playing ball hockey on an outdoor rink",
     label: "playing hockey",
     objectPosition: "center 35%",
+    vibe: "puck life",
   },
   {
     id: "paint",
@@ -48,6 +69,7 @@ const SLIDES: PhotoSlide[] = [
     alt: "Paint night at a studio with sunset canvases",
     label: "paint nights",
     objectPosition: "center center",
+    vibe: "canvas girl",
   },
   {
     id: "ramen",
@@ -55,66 +77,23 @@ const SLIDES: PhotoSlide[] = [
     alt: "Bowls of ramen on a wooden table",
     label: "ramen nights",
     objectPosition: "center center",
+    vibe: "munch o'clock",
   },
 ];
 
-function StickerRamen() {
-  return (
-    <svg className="carousel-sticker carousel-sticker-ramen" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-      <ellipse cx="24" cy="28" rx="16" ry="10" stroke="currentColor" strokeWidth="2" />
-      <path d="M10 28C10 28 14 18 24 18C34 18 38 28 38 28" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      <path d="M16 24H20M26 22H30M22 30H26" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      <path d="M30 14L34 10M34 14L30 10" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function StickerSunset() {
-  return (
-    <svg className="carousel-sticker carousel-sticker-sunset" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-      <path d="M8 32C14 26 34 26 40 32" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      <path d="M24 10V16M12 14L16 18M36 14L32 18M8 24H14M34 24H40" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      <circle cx="24" cy="22" r="6" stroke="currentColor" strokeWidth="2" />
-    </svg>
-  );
-}
-
-function StickerHeart() {
-  return (
-    <svg className="carousel-sticker carousel-sticker-heart" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-      <path
-        d="M24 38C24 38 8 26 8 16C8 11 12 7 17 7C20 7 23 9 24 12C25 9 28 7 31 7C36 7 40 11 40 16C40 26 24 38 24 38Z"
-        stroke="currentColor"
-        strokeWidth="2.2"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function StickerSmiley() {
-  return (
-    <svg className="carousel-sticker carousel-sticker-smiley" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-      <circle cx="24" cy="24" r="18" stroke="currentColor" strokeWidth="2.2" />
-      <circle cx="17" cy="20" r="2" fill="currentColor" />
-      <circle cx="31" cy="20" r="2" fill="currentColor" />
-      <path d="M16 30C18 34 30 34 32 30" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function StickerSparkle() {
-  return (
-    <svg className="carousel-sticker carousel-sticker-sparkle" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-      <path d="M24 4V10M24 38V44M4 24H10M38 24H44" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
-      <path d="M10 10L14 14M34 34L38 38M38 10L34 14M14 34L10 38" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
-    </svg>
-  );
-}
+const FLOAT_STICKERS = [
+  { id: "sparkle", text: "✦", tone: "blush", style: { top: "4%", left: "-6%" } as const },
+  { id: "toronto", text: "toronto", tone: "sky", style: { top: "18%", right: "-10%" } as const },
+  { id: "figma", text: "on figma", tone: "lavender", style: { bottom: "28%", left: "-12%" } as const },
+  { id: "hockey", text: "🏒", tone: "mint", style: { top: "52%", right: "-8%" } as const },
+  { id: "heart", text: "♡", tone: "peach", style: { bottom: "12%", right: "-4%" } as const },
+  { id: "paint", text: "🎨", tone: "lemon", style: { bottom: "4%", left: "8%" } as const },
+];
 
 export default function AboutCarousel() {
   const [active, setActive] = useState(0);
   const pausedRef = useRef(false);
+  const activeSlide = SLIDES[active];
 
   useEffect(() => {
     const id = window.setInterval(() => {
@@ -134,11 +113,24 @@ export default function AboutCarousel() {
 
   return (
     <div className="about-carousel-wrap">
-      <StickerSparkle />
-      <StickerHeart />
-      <StickerRamen />
-      <StickerSunset />
-      <StickerSmiley />
+      <div className="about-carousel-stickers" aria-hidden="true">
+        {FLOAT_STICKERS.map((sticker, index) => (
+          <span
+            key={sticker.id}
+            className={`about-float-sticker about-float-sticker--${sticker.tone}`}
+            style={{
+              ...sticker.style,
+              animationDelay: `${index * 0.45}s`,
+            }}
+          >
+            {sticker.text}
+          </span>
+        ))}
+      </div>
+
+      <p className="about-carousel-vibe" key={activeSlide.id}>
+        {activeSlide.vibe}
+      </p>
 
       <div className="about-carousel">
         {SLIDES.map((slide, i) => (

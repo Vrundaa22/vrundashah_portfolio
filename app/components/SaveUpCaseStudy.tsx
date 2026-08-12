@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import ScrollGradientLines from "./ScrollGradientLines";
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 
@@ -97,12 +98,15 @@ export default function SaveUpCaseStudy() {
   }, []);
 
   return (
-    <div className="saveup-case">
+    <div className="home home--elegant case-study-page case-study-page--saveup">
+      <ScrollGradientLines theme="saveup" />
+
+      <div className="saveup-case">
       <header className="saveup-hero-banner">
         <div
           className={`saveup-sticky-nav${navSolid ? " saveup-sticky-nav-solid" : ""}`}
         >
-          <SiteHeader active="work" />
+          <SiteHeader active="work" variant="elegant" />
         </div>
 
         <div className="saveup-hero-content">
@@ -417,6 +421,7 @@ export default function SaveUpCaseStudy() {
       </div>
 
       <SiteFooter />
+      </div>
     </div>
   );
 }

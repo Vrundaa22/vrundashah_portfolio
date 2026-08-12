@@ -1,12 +1,20 @@
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from "next";
-import { Caveat, Instrument_Serif, Montserrat } from "next/font/google";
+import { Caveat, DM_Sans, Instrument_Serif, Montserrat } from "next/font/google";
 import MicrosoftClarity from "./components/MicrosoftClarity";
 import "./globals.css";
+import "./elegant-overrides.css";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-montserrat",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-dm-sans",
 });
 
 const caveat = Caveat({
@@ -33,13 +41,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/icon.png" type="image/png" sizes="512x512" />
-        <link rel="apple-touch-icon" href="/apple-icon.png" />
-      </head>
       <body
-        className={`${montserrat.className} ${caveat.variable} ${instrumentSerif.variable}`}
+        className={`${montserrat.className} ${montserrat.variable} ${dmSans.variable} ${caveat.variable} ${instrumentSerif.variable}`}
       >
         {children}
         <MicrosoftClarity />

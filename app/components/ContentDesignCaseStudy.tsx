@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import PdfDeckViewer from "./PdfDeckViewer";
+import ScrollGradientLines from "./ScrollGradientLines";
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 
@@ -52,10 +53,13 @@ export default function ContentDesignCaseStudy() {
   };
 
   return (
-    <div className="cd-case">
+    <div className="home home--elegant case-study-page case-study-page--content-design">
+      <ScrollGradientLines theme="content-design" />
+
+      <div className="cd-case">
       <header className="cd-hero-banner">
         <div className={`cd-sticky-nav${navSolid ? " cd-sticky-nav-solid" : ""}`}>
-          <SiteHeader active="work" />
+          <SiteHeader active="work" variant="elegant" />
         </div>
 
         <div className="cd-hero-content">
@@ -143,6 +147,7 @@ export default function ContentDesignCaseStudy() {
       </div>
 
       <SiteFooter />
+      </div>
     </div>
   );
 }
