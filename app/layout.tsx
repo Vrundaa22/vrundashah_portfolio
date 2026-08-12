@@ -1,5 +1,5 @@
 import { Analytics } from '@vercel/analytics/react';
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Caveat, DM_Sans, Instrument_Serif, Montserrat } from "next/font/google";
 import MicrosoftClarity from "./components/MicrosoftClarity";
 import "./globals.css";
@@ -48,6 +48,12 @@ const ogImage = {
   width: 1200,
   height: 630,
   alt: "Vrunda Shah — Product Designer portfolio homepage",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export const metadata: Metadata = {
