@@ -90,6 +90,7 @@ export default function RootLayout({
         className={`${montserrat.className} ${montserrat.variable} ${dmSans.variable} ${caveat.variable} ${instrumentSerif.variable}`}
       >
         {children}
+        <Analytics />
         <MicrosoftClarity />
       </body>
     </html>
