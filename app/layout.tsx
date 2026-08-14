@@ -1,4 +1,4 @@
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from '@vercel/analytics/next';
 import type { Metadata, Viewport } from "next";
 import { Caveat, DM_Sans, Instrument_Serif, Montserrat } from "next/font/google";
 import MicrosoftClarity from "./components/MicrosoftClarity";
