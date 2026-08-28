@@ -21,10 +21,10 @@ const PHOTOS = [
     slot: "sunset" as const,
   },
   {
-    id: "vrunda-red",
-    src: "/about/vrunda.jpg",
-    alt: "Vrunda waving in a red top at a sunny Toronto park",
-    objectPosition: "50% 54%",
+    id: "moraine-lake",
+    src: "/about/moraine-lake.png",
+    alt: "Vrunda walking along a turquoise lake with mountains in the background",
+    objectPosition: "center 38%",
     slot: "vrunda" as const,
   },
 ];
