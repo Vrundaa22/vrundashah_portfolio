@@ -808,25 +808,6 @@ html[data-theme="dark"] .hero-clicks-label {
   min-width: 0;
 }
 
-.work-case-badge {
-  display: inline-block;
-  padding: 0.28rem 0.65rem;
-  border-radius: 999px;
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #0078d4;
-  background: rgba(0, 120, 212, 0.1);
-  border: 1px solid rgba(0, 120, 212, 0.16);
-}
-
-html[data-theme="dark"] .work-case-badge {
-  color: #4da3e8;
-  background: rgba(77, 163, 232, 0.12);
-  border-color: rgba(77, 163, 232, 0.22);
-}
-
 .work-case-title {
   margin: 0;
   font-family: var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
@@ -1585,7 +1566,6 @@ html[data-theme="dark"] body:has(.case-study-page) {
 .case-study-page .saveup-sticky-nav,
 .case-study-page .releaf-sticky-nav,
 .case-study-page .cd-sticky-nav,
-.case-study-page .outlook-sticky-nav,
 .case-study-page .coming-soon-nav {
   padding: clamp(1rem, 2.5vw, 1.5rem) clamp(1.25rem, 4vw, 2.5rem);
 }
@@ -1638,7 +1618,6 @@ html[data-theme="dark"] .case-study-page .cd-sticky-nav-solid {
 }
 
 .case-study-page .cd-hero-banner,
-.case-study-page .outlook-hero-banner,
 .case-study-page .coming-soon-hero {
   background: linear-gradient(
     180deg,
@@ -1667,7 +1646,6 @@ html[data-theme="dark"] .case-study-page .releaf-hero-banner {
 }
 
 html[data-theme="dark"] .case-study-page .cd-hero-banner,
-html[data-theme="dark"] .case-study-page .outlook-hero-banner,
 html[data-theme="dark"] .case-study-page .coming-soon-hero {
   background: linear-gradient(
     180deg,
@@ -2112,7 +2090,6 @@ html[data-theme="dark"] .case-study-page--content-design .cd-hero-name {
 }
 
 /* Outlook — soft Microsoft blue */
-.case-study-page--outlook .outlook-hero-banner,
 .case-study-page--outlook .coming-soon-hero {
   background: linear-gradient(
     180deg,
@@ -2122,7 +2099,6 @@ html[data-theme="dark"] .case-study-page--content-design .cd-hero-name {
   );
 }
 
-.case-study-page--outlook .outlook-hero-name,
 .case-study-page--outlook .coming-soon-title {
   font-family: var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
   font-weight: 500;
@@ -2130,19 +2106,16 @@ html[data-theme="dark"] .case-study-page--content-design .cd-hero-name {
   color: #0078d4;
 }
 
-.case-study-page--outlook .outlook-hero-badge,
 .case-study-page--outlook .coming-soon-tag {
   color: #0078d4;
   background: rgba(0, 120, 212, 0.1);
   border-color: rgba(0, 120, 212, 0.18);
 }
 
-html[data-theme="dark"] .case-study-page--outlook .outlook-hero-banner,
 html[data-theme="dark"] .case-study-page--outlook .coming-soon-hero {
   background: linear-gradient(180deg, #0d1218 0%, #142238 52%, #1a2d48 100%);
 }
 
-html[data-theme="dark"] .case-study-page--outlook .outlook-hero-name,
 html[data-theme="dark"] .case-study-page--outlook .coming-soon-title {
   color: #4da3e8;
 }
