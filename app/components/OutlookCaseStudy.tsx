@@ -92,7 +92,7 @@ export default function OutlookCaseStudy() {
               />
             </div>
             <p className="outlook-hero-prototype-hint">
-              Interactive — watch the intro, then explore inbox, compose, and saved contacts.
+              Interactive — watch the intro, then explore inbox, compose, and frequent contacts.
             </p>
           </div>
         </header>
@@ -116,7 +116,7 @@ export default function OutlookCaseStudy() {
           <div className="outlook-intro-box">
             <p>
               A personal Outlook concept built around everyday uni life — a calmer inbox,
-              pull-down saved contacts, minimized compose, and Copilot when you actually
+              frequent contacts inline, minimized compose, and Copilot when you actually
               need it. The prototype above runs the full intro → inbox flow; the write-up
               below is coming soon.
             </p>

@@ -616,115 +616,56 @@ a {
   background: var(--ol-white);
 }
 
-/* Mail stack — saved contacts rail below top bar (in flow, no overlap) */
-.ol-mail-stack {
-  flex: 1 1 0;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  min-height: 0;
-  overflow: hidden;
-}
-
-.ol-saved-rail {
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  background: var(--ol-white);
-  border-bottom: 1px solid var(--ol-border-soft);
-}
-
-.ol-saved-handle {
+/* Frequent contacts — inline above category chips */
+.ol-frequent {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 1.125rem;
-  padding: 0;
-  color: var(--ol-muted);
-  background: transparent;
-  transition: color 0.12s, background 0.12s;
-}
-
-.ol-saved-handle:hover {
-  color: var(--ol-royal-mid);
-  background: rgba(42, 122, 168, 0.04);
-}
-
-.ol-saved-handle-chevron {
+  gap: 0.65rem;
+  padding: 0.55rem 1rem 0.5rem;
+  border-bottom: 1px solid var(--ol-border-soft);
   flex-shrink: 0;
-  opacity: 0.45;
-  transition: transform 0.22s ease, opacity 0.12s;
-}
-
-.ol-saved-handle:hover .ol-saved-handle-chevron {
-  opacity: 0.75;
-}
-
-.ol-saved-rail--open .ol-saved-handle-chevron {
-  transform: rotate(180deg);
-  opacity: 0.65;
-}
-
-.ol-saved-panel {
-  max-height: 0;
-  overflow: hidden;
   background: var(--ol-white);
-  transition: max-height 0.28s ease;
 }
 
-.ol-saved-rail--open .ol-saved-panel {
-  max-height: 9rem;
-  border-top: 1px solid var(--ol-border-soft);
-}
-
-.ol-saved-panel-inner {
-  padding: 0 1.25rem 0.85rem;
-}
-
-.ol-saved-panel-title {
-  margin: 0;
-  padding: 0.55rem 0 0.65rem;
-  font-size: 0.68rem;
+.ol-frequent-label {
+  font-size: 0.62rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  text-align: center;
   color: var(--ol-muted);
+  flex-shrink: 0;
 }
 
-.ol-saved-panel-row {
+.ol-frequent-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem 1.25rem;
-  justify-content: center;
-}
-
-.ol-saved-contact {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 0.35rem;
-  min-width: 4.5rem;
-  padding: 0.25rem;
-  border-radius: var(--ol-radius-md);
-  transition: background 0.12s, transform 0.12s;
+  gap: 0.45rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  min-width: 0;
 }
 
-.ol-saved-contact:hover {
-  background: rgba(248, 245, 240, 0.7);
+.ol-frequent-row::-webkit-scrollbar {
+  display: none;
+}
+
+.ol-frequent-contact {
+  flex-shrink: 0;
+  padding: 0;
+  border-radius: 50%;
+  transition: transform 0.12s ease, opacity 0.12s ease;
+}
+
+.ol-frequent-contact:hover {
   transform: translateY(-1px);
+  opacity: 0.88;
 }
 
-.ol-saved-contact-name {
-  font-size: 0.62rem;
-  font-weight: 500;
-  color: var(--ol-muted);
-  text-align: center;
-  max-width: 5.5rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.ol-avatar--frequent {
+  width: 32px;
+  height: 32px;
+  font-size: 0.58rem;
+  font-weight: 600;
 }
 
 .ol-main--single {
@@ -2176,11 +2117,6 @@ html.ol-embed .ol-cat-chips {
 html.ol-embed .ol-cat-chip {
   flex-shrink: 0;
   padding: 0.36rem 0.7rem;
-}
-
-html.ol-embed .ol-mail-stack {
-  flex: 1;
-  min-height: 0;
 }
 
 html.ol-embed .ol-main {

@@ -45,7 +45,6 @@ export default function MailClient() {
   }, [view, category, onInbox]);
 
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [savedOpen, setSavedOpen] = useState(false);
   const activeId = selectedId ?? list[0]?.id ?? null;
   const selected: Email | undefined = EMAILS.find((e) => e.id === activeId);
 
@@ -77,60 +76,7 @@ export default function MailClient() {
 
   return (
     <AppShell mailFolder={folder}>
-      <div className="ol-mail-stack">
-        <div className={`ol-saved-rail${savedOpen ? " ol-saved-rail--open" : ""}`}>
-          <button
-            type="button"
-            className="ol-saved-handle"
-            aria-expanded={savedOpen}
-            aria-controls="saved-contacts-panel"
-            aria-label={savedOpen ? "Hide saved contacts" : "Show saved contacts"}
-            onClick={() => setSavedOpen((open) => !open)}
-          >
-            <svg
-              className="ol-saved-handle-chevron"
-              width="12"
-              height="12"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.4"
-              aria-hidden="true"
-            >
-              <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-
-          <div id="saved-contacts-panel" className="ol-saved-panel">
-            <div className="ol-saved-panel-inner">
-              <p className="ol-saved-panel-title">Saved contacts</p>
-              <div className="ol-saved-panel-row">
-              {SAVED_CONTACTS.map((contact) => (
-                <button
-                  key={contact.id}
-                  type="button"
-                  className="ol-saved-contact"
-                  onClick={() => {
-                    openContactEmail(contact.name);
-                    setSavedOpen(false);
-                  }}
-                  title={contact.name}
-                >
-                  <span
-                    className="ol-avatar ol-avatar--sm"
-                    style={{ background: contact.avatarColor }}
-                  >
-                    {contact.initials}
-                  </span>
-                  <span className="ol-saved-contact-name">{contact.name}</span>
-                </button>
-              ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className={`ol-main${selected ? " ol-main--has-selection" : ""}`}>
+      <div className={`ol-main${selected ? " ol-main--has-selection" : ""}`}>
         <section className="ol-list" aria-label="Message list">
           <div className="ol-view-tabs" role="tablist">
             <button
@@ -162,7 +108,32 @@ export default function MailClient() {
             </button>
           </div>
 
-          {view === "mail" && <CategoryCards active={category} onSelect={setCategory} />}
+          {view === "mail" && (
+            <>
+              <div className="ol-frequent">
+                <span className="ol-frequent-label">Frequent</span>
+                <div className="ol-frequent-row">
+                  {SAVED_CONTACTS.map((contact) => (
+                    <button
+                      key={contact.id}
+                      type="button"
+                      className="ol-frequent-contact"
+                      onClick={() => openContactEmail(contact.name)}
+                      title={contact.name}
+                    >
+                      <span
+                        className="ol-avatar ol-avatar--frequent"
+                        style={{ background: contact.avatarColor }}
+                      >
+                        {contact.initials}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <CategoryCards active={category} onSelect={setCategory} />
+            </>
+          )}
 
           {view === "pending" && (
             <p className="ol-list-note">
@@ -255,7 +226,6 @@ export default function MailClient() {
             </p>
           </section>
         )}
-        </div>
       </div>
     </AppShell>
   );
