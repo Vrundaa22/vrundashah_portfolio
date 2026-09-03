@@ -4,6 +4,8 @@ import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 import HeroClicks from "./HeroClicks";
 import ScrollGradientLines from "./ScrollGradientLines";
+import PortfolioWhisper, { PortfolioFreshTag } from "./PortfolioWhisper";
+import { getLatestPortfolioUpdate, getPortfolioUpdateForProject } from "@/lib/portfolio-updates";
 import { useTheme } from "../hooks/useTheme";
 import { useEffect, useState } from "react";
 
@@ -100,6 +102,7 @@ function useTorontoClock() {
 export default function HomeView() {
   const { dark } = useTheme();
   const time = useTorontoClock();
+  const latestUpdate = getLatestPortfolioUpdate();
 
   return (
     <div className={`home home--elegant${dark ? " home-dark" : ""}`}>
@@ -136,16 +139,32 @@ export default function HomeView() {
           <HeroClicks />
         </section>
 
+        {latestUpdate ? (
+          <div className="portfolio-whisper-hero-wrap">
+            <PortfolioWhisper update={latestUpdate} variant="hero" />
+          </div>
+        ) : null}
+
         <section className="work-cases" id="work" aria-label="Work">
-          {PROJECTS.map((project, index) => (
+          {PROJECTS.map((project, index) => {
+            const projectUpdate = getPortfolioUpdateForProject(project.id);
+
+            return (
             <a
               key={project.id}
               href={project.href}
-              className="work-case-row"
+              className={`work-case-row${projectUpdate ? " work-case-row--fresh" : ""}`}
               style={{ animationDelay: `${0.12 + index * 0.08}s` }}
             >
+              {projectUpdate ? (
+                <PortfolioWhisper update={projectUpdate} variant="project" />
+              ) : null}
+
               <div className="work-case-copy">
-                <h2 className="work-case-title">{project.title}</h2>
+                <h2 className="work-case-title">
+                  {project.title}
+                  {projectUpdate ? <PortfolioFreshTag /> : null}
+                </h2>
                 <p className="work-case-desc">{project.description}</p>
                 <span className="work-case-cta">
                   View case study
@@ -160,7 +179,8 @@ export default function HomeView() {
                 />
               </div>
             </a>
-          ))}
+            );
+          })}
         </section>
 
         <SiteFooter />
