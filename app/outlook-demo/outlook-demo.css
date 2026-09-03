@@ -98,13 +98,21 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.35rem;
+}
+
+.ol-intro-lockup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  transform: translateY(-2%);
 }
 
 .ol-intro-stage {
   position: relative;
-  width: min(228px, 56vw);
-  height: min(228px, 56vw);
+  width: min(168px, 40vw);
+  height: min(168px, 40vw);
   display: grid;
   place-items: center;
 }
@@ -133,16 +141,16 @@ a {
 }
 
 .ol-intro-logo .ol-logo-env {
-  width: min(140px, 34vw);
-  height: min(140px, 34vw);
+  width: min(88px, 22vw);
+  height: min(88px, 22vw);
 }
 
 .ol-intro-title {
   margin: 0;
-  font-family: var(--font-outfit), "Outfit", var(--font-dm), sans-serif;
-  font-size: 2.35rem;
-  font-weight: 300;
-  letter-spacing: 0.05em;
+  font-family: var(--font-dm), "Segoe UI", "DM Sans", system-ui, sans-serif;
+  font-size: clamp(1.75rem, 4.2vw, 2.15rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
   color: var(--ol-royal);
   opacity: 0;
   transform: translateY(6px);
@@ -2053,7 +2061,15 @@ html.ol-embed .outlook-demo-root {
 
 html.ol-embed .ol-intro {
   min-height: 100%;
-  padding: 1.5rem;
+  height: 100%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+html.ol-embed .ol-intro-lockup {
+  transform: translateY(-4%);
 }
 
 html.ol-embed .ol-frame {

@@ -40,6 +40,7 @@ export default function OutlookIntro() {
       aria-label="Outlook loading"
     >
       <div className="ol-intro-content">
+        <div className="ol-intro-lockup">
         <div className="ol-intro-stage">
           <svg
             className="ol-intro-border-svg"
@@ -70,11 +71,12 @@ export default function OutlookIntro() {
           </svg>
 
           <div className="ol-intro-logo">
-            <OutlookLogo intro size={140} />
+            <OutlookLogo intro size={96} />
           </div>
         </div>
 
         <p className="ol-intro-title">Outlook</p>
+        </div>
       </div>
     </main>
   );
