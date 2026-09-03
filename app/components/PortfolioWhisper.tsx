@@ -8,16 +8,9 @@ const DISMISS_PREFIX = "portfolio-whisper-dismissed:";
 
 type PortfolioWhisperProps = {
   update: PortfolioUpdate;
-  /** "hero" sits between hero and work; "project" floats on a case-study row */
-  variant?: "hero" | "project";
-  className?: string;
 };
 
-export default function PortfolioWhisper({
-  update,
-  variant = "hero",
-  className = "",
-}: PortfolioWhisperProps) {
+export default function PortfolioWhisper({ update }: PortfolioWhisperProps) {
   const [visible, setVisible] = useState(false);
   const storageKey = `${DISMISS_PREFIX}${update.id}`;
 
@@ -43,39 +36,23 @@ export default function PortfolioWhisper({
 
   if (!visible) return null;
 
-  const content = (
-    <>
-      <span className="portfolio-whisper-text">{update.message}</span>
-      <span className="portfolio-whisper-arrow" aria-hidden="true">
-        →
-      </span>
-    </>
-  );
-
   return (
-    <div
-      className={`portfolio-whisper portfolio-whisper--${variant}${className ? ` ${className}` : ""}`}
-      role="note"
-    >
-      {variant === "hero" ? (
-        <Link href={update.href} className="portfolio-whisper-link">
-          {content}
+    <p className="hero-whisper" role="note">
+      <span className="hero-whisper-text">
+        {update.messageBefore}
+        <Link href={update.href} className="hero-whisper-link">
+          {update.highlight}
         </Link>
-      ) : (
-        <span className="portfolio-whisper-link">{content}</span>
-      )}
+        {update.messageAfter ?? ""}
+      </span>
       <button
         type="button"
-        className="portfolio-whisper-dismiss"
+        className="hero-whisper-dismiss"
         onClick={dismiss}
         aria-label="Dismiss update"
       >
         ×
       </button>
-    </div>
+    </p>
   );
-}
-
-export function PortfolioFreshTag() {
-  return <span className="portfolio-fresh-tag">Just updated</span>;
 }

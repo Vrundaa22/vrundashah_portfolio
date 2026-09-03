@@ -279,8 +279,7 @@ html[data-theme="dark"] .scroll-gradient-line {
 }
 
 .home-layer--elegant .work-case-row,
-.home-layer--elegant .portfolio-whisper,
-.home-layer--elegant .portfolio-whisper-dismiss,
+.home-layer--elegant .hero-whisper-dismiss,
 .home-layer--elegant .home-nav-elegant a,
 .home-layer--elegant .home-brand--elegant,
 .home-layer--elegant .theme-toggle--elegant,
@@ -423,6 +422,88 @@ html[data-theme="dark"] .theme-toggle--elegant:hover {
 
 .hero-copy {
   min-width: 0;
+}
+
+.hero-whisper {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin: 0 0 clamp(0.85rem, 2vh, 1.1rem);
+  animation: homeTextIn 0.85s ease forwards;
+  animation-delay: 0.12s;
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.hero-whisper-text {
+  font-family: var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: #9a9a9a;
+}
+
+html[data-theme="dark"] .hero-whisper-text {
+  color: #888;
+}
+
+.hero-whisper-link {
+  font-style: italic;
+  font-weight: 500;
+  color: #2a9daf;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(42, 157, 175, 0.35);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.hero-whisper-link:hover {
+  color: #1a5080;
+  border-color: rgba(26, 80, 128, 0.55);
+}
+
+html[data-theme="dark"] .hero-whisper-link {
+  color: #7dd3e8;
+  border-bottom-color: rgba(125, 211, 232, 0.35);
+}
+
+html[data-theme="dark"] .hero-whisper-link:hover {
+  color: #b8ecf5;
+  border-bottom-color: rgba(184, 236, 245, 0.5);
+}
+
+.hero-whisper-dismiss {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0.05rem 0 0;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  font-size: 0.95rem;
+  line-height: 1;
+  color: #c8c8c8;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.hero-whisper-dismiss:hover {
+  color: #999;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+html[data-theme="dark"] .hero-whisper-dismiss {
+  color: #555;
+}
+
+html[data-theme="dark"] .hero-whisper-dismiss:hover {
+  color: #888;
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .hero-eyebrow {
@@ -790,230 +871,6 @@ html[data-theme="dark"] .hero-clicks-label {
   padding-bottom: clamp(3rem, 8vh, 5rem);
 }
 
-/* ── What's new whisper ── */
-
-.portfolio-whisper-hero-wrap {
-  display: flex;
-  justify-content: flex-start;
-  margin: clamp(-3rem, -6vh, -1.75rem) 0 clamp(1.25rem, 3vh, 2rem);
-  padding-left: clamp(0rem, 1vw, 0.25rem);
-  animation: homeTextIn 0.85s ease forwards;
-  animation-delay: 0.42s;
-  opacity: 0;
-  transform: translateY(8px);
-}
-
-.portfolio-whisper {
-  position: relative;
-  display: inline-flex;
-  align-items: flex-start;
-  gap: 0.35rem;
-  max-width: min(100%, 22rem);
-  padding: 0.55rem 0.85rem 0.55rem 0.95rem;
-  border-radius: 999px;
-  border: 1px solid rgba(42, 157, 175, 0.22);
-  background: linear-gradient(
-    135deg,
-    rgba(125, 211, 232, 0.2) 0%,
-    rgba(255, 255, 255, 0.92) 48%,
-    rgba(255, 249, 240, 0.95) 100%
-  );
-  box-shadow:
-    0 6px 22px rgba(26, 80, 128, 0.08),
-    0 1px 0 rgba(255, 255, 255, 0.8) inset;
-  animation: portfolioWhisperBob 5s ease-in-out infinite;
-}
-
-html[data-theme="dark"] .portfolio-whisper {
-  border-color: rgba(125, 211, 232, 0.18);
-  background: linear-gradient(
-    135deg,
-    rgba(42, 157, 175, 0.22) 0%,
-    rgba(34, 34, 34, 0.96) 55%,
-    rgba(28, 28, 28, 0.98) 100%
-  );
-  box-shadow:
-    0 8px 28px rgba(0, 0, 0, 0.28),
-    0 1px 0 rgba(255, 255, 255, 0.04) inset;
-}
-
-.portfolio-whisper--hero::after {
-  content: "";
-  position: absolute;
-  top: -7px;
-  left: clamp(1.5rem, 8vw, 2.4rem);
-  width: 12px;
-  height: 12px;
-  border-radius: 2px;
-  background: inherit;
-  border-top: 1px solid rgba(42, 157, 175, 0.18);
-  border-left: 1px solid rgba(42, 157, 175, 0.18);
-  transform: rotate(45deg);
-  box-shadow: -2px -2px 6px rgba(26, 80, 128, 0.04);
-}
-
-.portfolio-whisper--project {
-  position: absolute;
-  top: -0.35rem;
-  right: clamp(0rem, 2vw, 1rem);
-  z-index: 2;
-  max-width: min(100%, 17.5rem);
-  padding: 0.45rem 0.72rem 0.45rem 0.82rem;
-  font-size: 0.92em;
-  transform: rotate(1.5deg);
-  animation: portfolioWhisperBob 4.8s ease-in-out infinite;
-  pointer-events: auto;
-}
-
-.portfolio-whisper--project::after {
-  content: "";
-  position: absolute;
-  bottom: -6px;
-  right: clamp(1.2rem, 18%, 2rem);
-  width: 10px;
-  height: 10px;
-  border-radius: 2px;
-  background: inherit;
-  border-right: 1px solid rgba(42, 157, 175, 0.16);
-  border-bottom: 1px solid rgba(42, 157, 175, 0.16);
-  transform: rotate(45deg);
-}
-
-.work-case-row--fresh {
-  position: relative;
-}
-
-.portfolio-whisper-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  min-width: 0;
-  text-decoration: none;
-  color: inherit;
-}
-
-a.portfolio-whisper-link:hover .portfolio-whisper-text {
-  color: #1a5080;
-}
-
-html[data-theme="dark"] a.portfolio-whisper-link:hover .portfolio-whisper-text {
-  color: #9de8f4;
-}
-
-.portfolio-whisper-text {
-  font-family: var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
-  font-size: 0.78rem;
-  font-weight: 500;
-  font-style: italic;
-  line-height: 1.45;
-  letter-spacing: -0.01em;
-  color: #3d6878;
-  transition: color 0.2s ease;
-}
-
-html[data-theme="dark"] .portfolio-whisper-text {
-  color: #b8dce6;
-}
-
-.portfolio-whisper-arrow {
-  flex-shrink: 0;
-  font-size: 0.82rem;
-  font-style: normal;
-  font-weight: 500;
-  color: #2a9daf;
-  transition: transform 0.2s ease;
-}
-
-a.portfolio-whisper-link:hover .portfolio-whisper-arrow {
-  transform: translateX(2px);
-}
-
-html[data-theme="dark"] .portfolio-whisper-arrow {
-  color: #7dd3e8;
-}
-
-.portfolio-whisper-dismiss {
-  flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.35rem;
-  height: 1.35rem;
-  margin: -0.1rem -0.15rem -0.1rem 0;
-  padding: 0;
-  border: none;
-  border-radius: 50%;
-  background: transparent;
-  font-size: 1rem;
-  line-height: 1;
-  color: #9ab5bc;
-  cursor: pointer;
-  transition: color 0.2s ease, background 0.2s ease;
-}
-
-.portfolio-whisper-dismiss:hover {
-  color: #5a8794;
-  background: rgba(42, 157, 175, 0.1);
-}
-
-html[data-theme="dark"] .portfolio-whisper-dismiss {
-  color: #6a8a94;
-}
-
-html[data-theme="dark"] .portfolio-whisper-dismiss:hover {
-  color: #c5dde4;
-  background: rgba(125, 211, 232, 0.12);
-}
-
-.portfolio-fresh-tag {
-  display: inline-flex;
-  align-items: center;
-  margin-left: 0.55rem;
-  padding: 0.18rem 0.52rem;
-  border-radius: 999px;
-  vertical-align: middle;
-  font-family: var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
-  font-size: 0.58rem;
-  font-weight: 600;
-  font-style: normal;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #1a5080;
-  background: linear-gradient(135deg, rgba(125, 211, 232, 0.45), rgba(42, 157, 175, 0.22));
-  border: 1px solid rgba(42, 157, 175, 0.2);
-  transform: translateY(-0.15em);
-}
-
-html[data-theme="dark"] .portfolio-fresh-tag {
-  color: #d4f4fb;
-  background: linear-gradient(135deg, rgba(42, 157, 175, 0.35), rgba(26, 80, 128, 0.35));
-  border-color: rgba(125, 211, 232, 0.22);
-}
-
-@keyframes portfolioWhisperBob {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-3px);
-  }
-}
-
-.portfolio-whisper--project {
-  animation-name: portfolioWhisperBobTilt;
-}
-
-@keyframes portfolioWhisperBobTilt {
-  0%,
-  100% {
-    transform: rotate(1.5deg) translateY(0);
-  }
-  50% {
-    transform: rotate(1.5deg) translateY(-3px);
-  }
-}
-
 .work-case-row {
   display: grid;
   grid-template-columns: minmax(0, 42%) minmax(0, 58%);
@@ -1345,29 +1202,6 @@ html[data-theme="dark"] .work-gallery-media--content-design {
   .work-case-row {
     grid-template-columns: 1fr;
     gap: 1.35rem;
-  }
-
-  .work-case-row--fresh {
-    padding-top: 2.75rem;
-  }
-
-  .portfolio-whisper--project {
-    top: 0;
-    right: 0;
-    left: 0;
-    max-width: 100%;
-    transform: rotate(0deg);
-    animation-name: portfolioWhisperBob;
-  }
-
-  .portfolio-whisper--project::after {
-    right: auto;
-    left: 1.5rem;
-    bottom: -6px;
-  }
-
-  .portfolio-whisper-hero-wrap {
-    margin-top: -1.25rem;
   }
 
   .work-case-visual {

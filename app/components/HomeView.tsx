@@ -4,8 +4,8 @@ import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 import HeroClicks from "./HeroClicks";
 import ScrollGradientLines from "./ScrollGradientLines";
-import PortfolioWhisper, { PortfolioFreshTag } from "./PortfolioWhisper";
-import { getLatestPortfolioUpdate, getPortfolioUpdateForProject } from "@/lib/portfolio-updates";
+import PortfolioWhisper from "./PortfolioWhisper";
+import { getLatestPortfolioUpdate } from "@/lib/portfolio-updates";
 import { useTheme } from "../hooks/useTheme";
 import { useEffect, useState } from "react";
 
@@ -113,6 +113,7 @@ export default function HomeView() {
 
         <section className="hero hero--mockup" id="home">
           <div className="hero-copy">
+            {latestUpdate ? <PortfolioWhisper update={latestUpdate} /> : null}
             <p className="hero-eyebrow">
               <span aria-hidden="true">👋</span> HII, I&apos;M VRUNDA
             </p>
@@ -139,32 +140,16 @@ export default function HomeView() {
           <HeroClicks />
         </section>
 
-        {latestUpdate ? (
-          <div className="portfolio-whisper-hero-wrap">
-            <PortfolioWhisper update={latestUpdate} variant="hero" />
-          </div>
-        ) : null}
-
         <section className="work-cases" id="work" aria-label="Work">
-          {PROJECTS.map((project, index) => {
-            const projectUpdate = getPortfolioUpdateForProject(project.id);
-
-            return (
+          {PROJECTS.map((project, index) => (
             <a
               key={project.id}
               href={project.href}
-              className={`work-case-row${projectUpdate ? " work-case-row--fresh" : ""}`}
+              className="work-case-row"
               style={{ animationDelay: `${0.12 + index * 0.08}s` }}
             >
-              {projectUpdate ? (
-                <PortfolioWhisper update={projectUpdate} variant="project" />
-              ) : null}
-
               <div className="work-case-copy">
-                <h2 className="work-case-title">
-                  {project.title}
-                  {projectUpdate ? <PortfolioFreshTag /> : null}
-                </h2>
+                <h2 className="work-case-title">{project.title}</h2>
                 <p className="work-case-desc">{project.description}</p>
                 <span className="work-case-cta">
                   View case study
@@ -179,8 +164,7 @@ export default function HomeView() {
                 />
               </div>
             </a>
-            );
-          })}
+          ))}
         </section>
 
         <SiteFooter />
