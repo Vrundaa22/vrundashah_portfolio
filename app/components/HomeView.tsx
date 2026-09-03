@@ -37,12 +37,14 @@ const PROJECTS = [
   },
   {
     id: "microsoft-outlook",
-    title: "Microsoft Outlook",
+    title: "A New Look to Outlook",
     variant: "outlook" as const,
+    badge: "In progress",
     description:
-      "Enterprise email and calendar experience focused on clarity, connection, and helping teams stay organized across their day-to-day workflow.",
-    visualGradient: "linear-gradient(145deg, #0078d4 0%, #005a9e 100%)",
+      "A chic personal Outlook concept — focused inbox, pull-down saved contacts, minimized compose, and Copilot when you need it.",
+    visualGradient: "linear-gradient(145deg, #7dd3e8 0%, #1a5080 55%, #0c2d48 100%)",
     href: "/outlook",
+    cta: "Explore prototype",
   },
 ];
 
@@ -145,10 +147,13 @@ export default function HomeView() {
               style={{ animationDelay: `${0.12 + index * 0.08}s` }}
             >
               <div className="work-case-copy">
+                {"badge" in project && project.badge ? (
+                  <span className="work-case-badge">{project.badge}</span>
+                ) : null}
                 <h2 className="work-case-title">{project.title}</h2>
                 <p className="work-case-desc">{project.description}</p>
                 <span className="work-case-cta">
-                  View case study
+                  {"cta" in project && project.cta ? project.cta : "View case study"}
                   <span aria-hidden="true">→</span>
                 </span>
               </div>
