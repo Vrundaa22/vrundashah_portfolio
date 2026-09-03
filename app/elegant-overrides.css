@@ -2109,8 +2109,8 @@ html[data-theme="dark"] .case-study-page--outlook .coming-soon-hero {
   background: linear-gradient(180deg, #0d1218 0%, #142838 52%, #1a3d48 100%);
 }
 
-.case-study-page--outlook .outlook-hero-title-ms {
-  color: rgba(255, 255, 255, 0.9);
+.case-study-page--outlook .outlook-hero-title {
+  color: #fff;
 }
 
 html[data-theme="dark"] .case-study-page--outlook .outlook-section-title {

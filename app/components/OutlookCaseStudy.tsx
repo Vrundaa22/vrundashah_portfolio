@@ -81,15 +81,12 @@ export default function OutlookCaseStudy() {
 
           <div className="outlook-hero-content">
             <p className="outlook-hero-badge">Redesign</p>
-            <h1 className="outlook-hero-title">
-              <span className="outlook-hero-title-ms">Microsoft</span>
-              <span className="outlook-hero-title-brand">Outlook</span>
-            </h1>
+            <h1 className="outlook-hero-title">Microsoft Outlook</h1>
 
             <div className="outlook-hero-prototype">
               <iframe
                 title="Microsoft Outlook redesign — interactive prototype"
-                src={OUTLOOK_DEMO_BASE}
+                src={`${OUTLOOK_DEMO_BASE}?embed=1`}
                 className="outlook-hero-prototype-frame"
                 loading="eager"
               />

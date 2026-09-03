@@ -68,7 +68,10 @@ export default function MailClient() {
     const match = EMAILS.find((e) => e.from === name);
     if (match) {
       setSelectedId(match.id);
-      router.push(OUTLOOK_MAIL, { scroll: false });
+      const params = new URLSearchParams(searchParams.toString());
+      params.delete("view");
+      params.delete("folder");
+      router.push(`${OUTLOOK_MAIL}?${params.toString()}`, { scroll: false });
     }
   }
 

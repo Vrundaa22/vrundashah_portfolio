@@ -17,7 +17,7 @@ export default function OutlookIntro() {
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduced) {
-      router.replace(OUTLOOK_MAIL);
+      router.replace(`${OUTLOOK_MAIL}?embed=1`);
       return;
     }
 
@@ -25,7 +25,7 @@ export default function OutlookIntro() {
     const navTimer = window.setTimeout(() => {
       if (doneRef.current) return;
       doneRef.current = true;
-      router.push(OUTLOOK_MAIL);
+      router.push(`${OUTLOOK_MAIL}?embed=1`);
     }, INTRO_EXIT_MS);
 
     return () => {

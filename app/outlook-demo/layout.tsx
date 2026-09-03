@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans, Outfit } from "next/font/google";
+import EmbedDetector from "@/components/outlook-demo/EmbedDetector";
 import "./outlook-demo.css";
 
 const dmSans = DM_Sans({
@@ -26,6 +27,13 @@ export default function OutlookDemoLayout({
 }) {
   return (
     <div className={`outlook-demo-root ${dmSans.variable} ${outfit.variable}`}>
+      <script
+        dangerouslySetInnerHTML={{
+          __html:
+            "(function(){if(window.self!==window.top||/embed=1/.test(location.search))document.documentElement.classList.add('ol-embed');})();",
+        }}
+      />
+      <EmbedDetector />
       {children}
     </div>
   );
