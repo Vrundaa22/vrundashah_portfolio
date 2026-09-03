@@ -40,8 +40,8 @@ const PROJECTS = [
     title: "Microsoft Outlook",
     variant: "outlook" as const,
     description:
-      "Enterprise email and calendar experience focused on clarity, connection, and helping teams stay organized across their day-to-day workflow.",
-    visualGradient: "linear-gradient(145deg, #0078d4 0%, #005a9e 100%)",
+      "A personal redesign concept — focused inbox, saved contacts, minimized compose, and Copilot when you need it. Interactive prototype on the case study page.",
+    visualGradient: "linear-gradient(145deg, #7dd3e8 0%, #2a9daf 42%, #1a5080 100%)",
     href: "/outlook",
   },
 ];

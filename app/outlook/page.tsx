@@ -1,12 +1,12 @@
-import ComingSoonCaseStudy from "../components/ComingSoonCaseStudy";
+import type { Metadata } from "next";
+import OutlookCaseStudy from "../components/OutlookCaseStudy";
+
+export const metadata: Metadata = {
+  title: "Microsoft Outlook — Redesign",
+  description:
+    "A personal Outlook redesign concept with an interactive prototype — focused inbox, saved contacts, and Copilot-assisted replies.",
+};
 
 export default function OutlookPage() {
-  return (
-    <ComingSoonCaseStudy
-      title="Microsoft Outlook"
-      tag="redesign"
-      accent="outlook"
-      blurb="This redesign is still being documented — I'm refining the narrative, flows, and final screens. In the meantime, feel free to reach out if you'd like to hear more about the work."
-    />
-  );
+  return <OutlookCaseStudy />;
 }

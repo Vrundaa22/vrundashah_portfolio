@@ -1566,6 +1566,7 @@ html[data-theme="dark"] body:has(.case-study-page) {
 .case-study-page .saveup-sticky-nav,
 .case-study-page .releaf-sticky-nav,
 .case-study-page .cd-sticky-nav,
+.case-study-page .outlook-sticky-nav,
 .case-study-page .coming-soon-nav {
   padding: clamp(1rem, 2.5vw, 1.5rem) clamp(1.25rem, 4vw, 2.5rem);
 }
@@ -1618,6 +1619,7 @@ html[data-theme="dark"] .case-study-page .cd-sticky-nav-solid {
 }
 
 .case-study-page .cd-hero-banner,
+.case-study-page .outlook-hero-banner,
 .case-study-page .coming-soon-hero {
   background: linear-gradient(
     180deg,
@@ -2089,35 +2091,30 @@ html[data-theme="dark"] .case-study-page--content-design .cd-hero-name {
   color: #e8c4a8;
 }
 
-/* Outlook — soft Microsoft blue */
+/* Outlook — teal hero matching mockup */
+.case-study-page--outlook .outlook-hero-banner,
 .case-study-page--outlook .coming-soon-hero {
   background: linear-gradient(
     180deg,
-    #eef4fa 0%,
-    #dce8f6 48%,
-    #c8daf2 100%
+    #c5ecf4 0%,
+    #9de0eb 28%,
+    #6fd0de 55%,
+    #4ecbd4 78%,
+    #3aabbf 100%
   );
 }
 
-.case-study-page--outlook .coming-soon-title {
-  font-family: var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  color: #0078d4;
-}
-
-.case-study-page--outlook .coming-soon-tag {
-  color: #0078d4;
-  background: rgba(0, 120, 212, 0.1);
-  border-color: rgba(0, 120, 212, 0.18);
-}
-
+html[data-theme="dark"] .case-study-page--outlook .outlook-hero-banner,
 html[data-theme="dark"] .case-study-page--outlook .coming-soon-hero {
-  background: linear-gradient(180deg, #0d1218 0%, #142238 52%, #1a2d48 100%);
+  background: linear-gradient(180deg, #0d1218 0%, #142838 52%, #1a3d48 100%);
 }
 
-html[data-theme="dark"] .case-study-page--outlook .coming-soon-title {
-  color: #4da3e8;
+.case-study-page--outlook .outlook-hero-title-ms {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+html[data-theme="dark"] .case-study-page--outlook .outlook-section-title {
+  color: #e8f0f4;
 }
 
 /* Home dark mode polish */
