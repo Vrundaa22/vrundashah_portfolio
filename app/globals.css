@@ -331,15 +331,19 @@ summary,
 body:has(.app-home),
 body:has(.about-page) {
   color: #1a1a1a;
-  background-color: #faf8f4;
+  background-color: #fcfcfc;
   background-image: none;
 }
 
 html[data-theme="dark"] body:has(.app-home),
 html[data-theme="dark"] body:has(.about-page) {
   color: #ececec;
-  background-color: #111111;
-  background-image: none;
+  background-color: #111114;
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, #111114 0%, #0a0a0c 100%);
+  background-size: 22px 22px, 100% 100%;
+  background-attachment: fixed;
 }
 
 .home {

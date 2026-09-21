@@ -104,65 +104,70 @@ export default function HomeView() {
   const latestUpdate = getLatestPortfolioUpdate();
 
   return (
-    <div className={`home home--elegant${dark ? " home-dark" : ""}`}>
+    <div className={`home home--elegant home--studio${dark ? " home-dark" : ""}`}>
       <div className="home-layer home-layer--elegant">
-        <SiteHeader active="work" variant="elegant" />
+        <div className="home-screen">
+          <SiteHeader active="work" variant="elegant" />
 
-        <section className="hero hero--mockup" id="home">
+          <section className="hero hero--mockup hero--studio" id="home">
           <div className="hero-copy">
             {latestUpdate ? <PortfolioWhisper update={latestUpdate} /> : null}
-            <p className="hero-eyebrow">
-              <span aria-hidden="true">👋</span> HII, I&apos;M VRUNDA
-            </p>
-            <h1 className="hero-headline hero-headline--mockup">
-              I see a problem,
-              <br />
-              get a little too excited,
-              <br />
-              and start designing :)
+            <h1 className="hero-headline hero-headline--studio">
+              I see a problem, get a little too excited, and start{" "}
+              <em>designing</em> product experiences.
             </h1>
-            <p className="hero-status">
-              <time suppressHydrationWarning>{time || "—:—"}</time>
+            <p className="hero-lede">
+              Product designer crafting thoughtful flows, systems, and prototypes — from
+              fintech to health to everyday tools.
+            </p>
+            <p className="hero-status hero-status--studio">
               <span className="hero-status-open">
                 <span className="status-dot" aria-hidden="true" />
-                open to product experiences
+                Open to product design roles
               </span>
-            </p>
-            <p className="hero-status-sub">
-              Incoming @{" "}
-              <span className="hero-brand hero-brand--scotia">Scotiabank</span>
+              <span className="hero-status-sep" aria-hidden="true">
+                ·
+              </span>
+              <time suppressHydrationWarning>{time || "—:—"}</time>
+              <span className="hero-status-sep" aria-hidden="true">
+                ·
+              </span>
+              <span>
+                Incoming @{" "}
+                <span className="hero-brand hero-brand--scotia">Scotiabank</span>
+              </span>
             </p>
           </div>
 
           <HeroClicks />
         </section>
 
-        <section className="work-cases" id="work" aria-label="Work">
-          {PROJECTS.map((project, index) => (
-            <a
-              key={project.id}
-              href={project.href}
-              className="work-case-row"
-              style={{ animationDelay: `${0.12 + index * 0.08}s` }}
-            >
-              <div className="work-case-copy">
-                <h2 className="work-case-title">{project.title}</h2>
-                <p className="work-case-desc">{project.description}</p>
-                <span className="work-case-cta">
-                  View case study
-                  <span aria-hidden="true">→</span>
-                </span>
-              </div>
-
-              <div className={`work-case-visual work-case-visual--${project.variant}`}>
-                <ProjectVisual
-                  project={project}
-                  className={`work-case-media work-case-media--${project.variant}`}
-                />
-              </div>
-            </a>
-          ))}
+        <section className="work-cases work-cases--studio" id="work" aria-label="Work">
+          <div className="work-grid">
+            {PROJECTS.map((project, index) => (
+              <a
+                key={project.id}
+                href={project.href}
+                className="work-card"
+                style={{ animationDelay: `${0.12 + index * 0.06}s` }}
+              >
+                <div className={`work-card-visual work-case-visual work-case-visual--${project.variant}`}>
+                  <ProjectVisual
+                    project={project}
+                    className={`work-case-media work-case-media--${project.variant}`}
+                  />
+                </div>
+                <div className="work-card-copy">
+                  <h2 className="work-card-title">{project.title}</h2>
+                  <p className="work-card-desc" title={project.description}>
+                    {project.description}
+                  </p>
+                </div>
+              </a>
+            ))}
+          </div>
         </section>
+        </div>
 
         <SiteFooter />
       </div>
