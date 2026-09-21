@@ -3,7 +3,6 @@
 import { useCallback, useEffect, useState } from "react";
 import HomeView from "./components/HomeView";
 import IntroSplash from "./components/IntroSplash";
-import ScrollGradientLines from "./components/ScrollGradientLines";
 
 const INTRO_SEEN_KEY = "portfolio-intro-seen";
 
@@ -67,7 +66,6 @@ export default function Home() {
 
   return (
     <main className={`app${showHome ? " app-home" : ""}`}>
-      {showIntro && !showHome && <ScrollGradientLines />}
       {showHome && <HomeView />}
       {showIntro && (
         <IntroSplash

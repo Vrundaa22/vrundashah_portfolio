@@ -3,7 +3,6 @@
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 import HeroClicks from "./HeroClicks";
-import ScrollGradientLines from "./ScrollGradientLines";
 import PortfolioWhisper from "./PortfolioWhisper";
 import { getLatestPortfolioUpdate } from "@/lib/portfolio-updates";
 import { useTheme } from "../hooks/useTheme";
@@ -106,8 +105,6 @@ export default function HomeView() {
 
   return (
     <div className={`home home--elegant${dark ? " home-dark" : ""}`}>
-      <ScrollGradientLines />
-
       <div className="home-layer home-layer--elegant">
         <SiteHeader active="work" variant="elegant" />
 

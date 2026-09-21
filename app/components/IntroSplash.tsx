@@ -22,13 +22,6 @@ function IntroLoader({ progress, visible }: { progress: number; visible: boolean
   return (
     <div className={`intro-loader${visible ? " intro-loader--visible" : ""}`}>
       <svg className="intro-loader-svg" viewBox="0 0 44 44" aria-hidden="true">
-        <defs>
-          <linearGradient id="intro-loader-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#ffc6d2" />
-            <stop offset="50%" stopColor="#c6daff" />
-            <stop offset="100%" stopColor="#ffe0c6" />
-          </linearGradient>
-        </defs>
         <circle className="intro-loader-track" cx="22" cy="22" r={radius} fill="none" strokeWidth="2.5" />
         <circle
           className="intro-loader-progress"
@@ -37,7 +30,7 @@ function IntroLoader({ progress, visible }: { progress: number; visible: boolean
           r={radius}
           fill="none"
           strokeWidth="2.5"
-          stroke="url(#intro-loader-gradient)"
+          stroke="#1a1a1a"
           strokeLinecap="round"
           strokeDasharray={circumference}
           strokeDashoffset={offset}

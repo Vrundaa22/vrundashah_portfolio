@@ -40,7 +40,7 @@ summary,
 body:has(.intro-screen),
 body:has(.prompt-screen) {
   color: #1a1a1a;
-  background-color: #f2f2f2;
+  background-color: #faf8f4;
   background-image: none;
 }
 
@@ -61,7 +61,7 @@ body:has(.prompt-screen) {
 .intro-screen-bg {
   position: absolute;
   inset: 0;
-  background: #f7f7f5;
+  background: #faf8f4;
   pointer-events: none;
   transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -166,11 +166,19 @@ body:has(.prompt-screen) {
 }
 
 .intro-loader-track {
-  stroke: #e4e4e4;
+  stroke: #e8e4dc;
 }
 
 .intro-loader-progress {
   transition: stroke-dashoffset 0.08s linear;
+}
+
+html[data-theme="dark"] .intro-loader-track {
+  stroke: #2e2e2e;
+}
+
+html[data-theme="dark"] .intro-loader-progress {
+  stroke: #ececec;
 }
 
 .intro-loader-label {
@@ -210,7 +218,7 @@ body:has(.prompt-screen) {
 
 body:has(.home--elegant) {
   color: #1a1a1a;
-  background-color: #f2f2f2;
+  background-color: #faf8f4;
   background-image: none;
 }
 
