@@ -89,7 +89,7 @@ export default function SiteHeader({
           onClick={handleBrandClick}
           className="home-brand home-brand--elegant"
         >
-          Vrunda Shah
+          vrunda shah
         </Link>
 
         <nav className="home-nav-elegant" aria-label="Main">

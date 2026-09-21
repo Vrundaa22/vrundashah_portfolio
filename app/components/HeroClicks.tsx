@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const APPEAR_GAP_MS = 550;
+const APPEAR_GAP_MS = 700;
 
 const PHOTOS = [
   {
@@ -29,19 +29,33 @@ const PHOTOS = [
   },
 ];
 
+function SparkleBurst() {
+  return (
+    <span className="hero-clicks-sparkle" aria-hidden="true">
+      {Array.from({ length: 8 }, (_, i) => (
+        <span
+          key={i}
+          className="hero-clicks-sparkle-star"
+          style={{ "--star-i": i } as React.CSSProperties}
+        />
+      ))}
+    </span>
+  );
+}
+
 export default function HeroClicks() {
   const [visibleCount, setVisibleCount] = useState(0);
 
   useEffect(() => {
     setVisibleCount(0);
     const timers = PHOTOS.map((_, index) =>
-      window.setTimeout(() => setVisibleCount(index + 1), 320 + index * APPEAR_GAP_MS)
+      window.setTimeout(() => setVisibleCount(index + 1), 450 + index * APPEAR_GAP_MS)
     );
     return () => timers.forEach((id) => window.clearTimeout(id));
   }, []);
 
   return (
-    <div className="hero-clicks hero-clicks--studio" aria-label="Photos of Vrunda">
+    <div className="hero-clicks" aria-label="it's mee">
       <div className="hero-clicks-stack">
         {PHOTOS.map((photo, index) => {
           const isVisible = visibleCount > index;
@@ -51,6 +65,7 @@ export default function HeroClicks() {
               key={photo.id}
               className={`hero-clicks-polaroid hero-clicks-polaroid--${photo.slot}${isVisible ? " hero-clicks-polaroid--in" : ""}`}
             >
+              {isVisible && <SparkleBurst />}
               <div className="hero-clicks-photo">
                 <Image
                   src={photo.src}
@@ -67,6 +82,11 @@ export default function HeroClicks() {
           );
         })}
       </div>
+      <p
+        className={`hero-clicks-label${visibleCount >= PHOTOS.length ? " hero-clicks-label--in" : ""}`}
+      >
+        it&apos;s mee
+      </p>
     </div>
   );
 }
