@@ -460,25 +460,25 @@ html[data-theme="dark"] .hero-whisper-text {
 .hero-whisper-link {
   font-style: italic;
   font-weight: 500;
-  color: #2a9daf;
+  color: #5c4033;
   text-decoration: none;
-  border-bottom: 1px solid rgba(42, 157, 175, 0.35);
+  border-bottom: 1px solid rgba(92, 64, 51, 0.38);
   transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 .hero-whisper-link:hover {
-  color: #1a5080;
-  border-color: rgba(26, 80, 128, 0.55);
+  color: #3d2a22;
+  border-color: rgba(61, 42, 34, 0.55);
 }
 
 html[data-theme="dark"] .hero-whisper-link {
-  color: #7dd3e8;
-  border-bottom-color: rgba(125, 211, 232, 0.35);
+  color: #c4a088;
+  border-bottom-color: rgba(196, 160, 136, 0.4);
 }
 
 html[data-theme="dark"] .hero-whisper-link:hover {
-  color: #b8ecf5;
-  border-bottom-color: rgba(184, 236, 245, 0.5);
+  color: #ddc4b0;
+  border-bottom-color: rgba(221, 196, 176, 0.55);
 }
 
 .hero-eyebrow {

@@ -6,7 +6,7 @@ export type PortfolioUpdate = {
   /** Unique id for dismiss storage */
   id: string;
   messageBefore: string;
-  /** Teal link text — usually the project name */
+  /** Link text — usually the project name */
   highlight: string;
   messageAfter?: string;
   href: string;
@@ -16,10 +16,10 @@ export type PortfolioUpdate = {
 
 export const PORTFOLIO_UPDATES: PortfolioUpdate[] = [
   {
-    id: "outlook-redesign-mar-2026",
-    messageBefore: "psss… just added something new on my ",
-    highlight: "Outlook redesign",
-    href: "/outlook",
+    id: "content-design-sep-2026",
+    messageBefore: "pss check out my ",
+    highlight: "Content Design samples",
+    href: "/content-design",
   },
 ];
 
