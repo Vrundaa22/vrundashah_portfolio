@@ -880,6 +880,83 @@ html[data-theme="dark"] .work-case-title {
   color: #f2f2f2;
 }
 
+.work-case-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.work-case-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.62rem;
+  border-radius: 999px;
+  font-family: var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #6a6a6a;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.work-case-tag--save-up {
+  color: #3d5a80;
+  background: rgba(26, 58, 110, 0.08);
+  border-color: rgba(26, 58, 110, 0.12);
+}
+
+.work-case-tag--content-design {
+  color: #6b5a48;
+  background: rgba(139, 110, 85, 0.1);
+  border-color: rgba(139, 110, 85, 0.14);
+}
+
+.work-case-tag--releaf {
+  color: #4a6b52;
+  background: rgba(74, 107, 82, 0.1);
+  border-color: rgba(74, 107, 82, 0.14);
+}
+
+.work-case-tag--outlook {
+  color: #3d6878;
+  background: rgba(42, 157, 175, 0.1);
+  border-color: rgba(42, 157, 175, 0.16);
+}
+
+html[data-theme="dark"] .work-case-tag {
+  color: #aaa;
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="dark"] .work-case-tag--save-up {
+  color: #9bb8e0;
+  background: rgba(90, 143, 199, 0.15);
+  border-color: rgba(90, 143, 199, 0.22);
+}
+
+html[data-theme="dark"] .work-case-tag--content-design {
+  color: #c4b09a;
+  background: rgba(196, 176, 154, 0.12);
+  border-color: rgba(196, 176, 154, 0.2);
+}
+
+html[data-theme="dark"] .work-case-tag--releaf {
+  color: #9ec4a8;
+  background: rgba(120, 170, 130, 0.12);
+  border-color: rgba(120, 170, 130, 0.2);
+}
+
+html[data-theme="dark"] .work-case-tag--outlook {
+  color: #9dd4e0;
+  background: rgba(125, 211, 232, 0.12);
+  border-color: rgba(125, 211, 232, 0.2);
+}
+
 .work-case-desc {
   margin: 0;
   max-width: 34em;

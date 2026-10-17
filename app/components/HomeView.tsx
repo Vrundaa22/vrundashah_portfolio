@@ -12,6 +12,7 @@ const PROJECTS = [
   {
     id: "rbc-save-up",
     title: "RBC Save Up",
+    tags: ["financial", "AI", "web app"],
     variant: "save-up" as const,
     description:
       "AI-powered financial planning that goes beyond tracking—helping users understand spending, plan with intention, and turn everyday decisions into progress toward their goals.",
@@ -21,6 +22,7 @@ const PROJECTS = [
   {
     id: "content-design",
     title: "Content Design Samples",
+    tags: ["ux samples"],
     variant: "content-design" as const,
     description:
       "UX writing across AI onboarding guides, product help, and complex financial scenarios—clear copy that helps users move forward with confidence.",
@@ -30,6 +32,7 @@ const PROJECTS = [
   {
     id: "releaf",
     title: "Releaf",
+    tags: ["Personal project", "health", "comfort"],
     variant: "releaf" as const,
     description:
       "IBD-focused digital health experience that helps users identify symptom patterns and triggers by turning fragmented daily data into meaningful, actionable insights.",
@@ -39,6 +42,7 @@ const PROJECTS = [
   {
     id: "microsoft-outlook",
     title: "Microsoft Outlook",
+    tags: ["prototype", "redesign", "accessible"],
     variant: "outlook" as const,
     description:
       "A personal redesign concept — focused inbox, saved contacts, minimized compose, and Copilot when you need it. Interactive prototype on the case study page.",
@@ -147,6 +151,13 @@ export default function HomeView() {
             >
               <div className="work-case-copy">
                 <h2 className="work-case-title">{project.title}</h2>
+                <ul className="work-case-tags" aria-label="Project tags">
+                  {project.tags.map((tag) => (
+                    <li key={tag} className={`work-case-tag work-case-tag--${project.variant}`}>
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
                 <p className="work-case-desc">{project.description}</p>
                 <span className="work-case-cta">
                   View case study
