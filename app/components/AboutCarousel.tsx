@@ -25,9 +25,9 @@ const SLIDES: PhotoSlide[] = [
   {
     id: "headshot",
     src: "/about/headshot.png",
-    alt: "Vrunda smiling in a white top, professional headshot",
+    alt: "Vrunda smiling in a black-and-white headshot against a stone wall",
     label: "headshot",
-    objectPosition: "50% 22%",
+    objectPosition: "50% 38%",
     vibe: "hire me pls",
   },
   {
