@@ -120,11 +120,9 @@ export default function HomeView() {
               <span aria-hidden="true">👋</span> HII, I&apos;M VRUNDA
             </p>
             <h1 className="hero-headline hero-headline--mockup">
-              I see a problem.
-              <br />
-              Get a little too excited.
-              <br />
-              And start designing.
+              <span className="hero-headline-line">I see a problem.</span>
+              <span className="hero-headline-line">Get a little too excited.</span>
+              <span className="hero-headline-line">And start designing.</span>
             </h1>
             <p className="hero-status">
               <time suppressHydrationWarning>{time || "—:—"}</time>

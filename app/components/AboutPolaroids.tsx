@@ -13,6 +13,14 @@ type Polaroid = {
 
 const POLAROIDS: Polaroid[] = [
   {
+    id: "late-night-sketching",
+    src: "/about/life/late-night-sketching.jpg",
+    alt: "Pencil sketch of eyes in a wire-bound sketchbook with a blue drawing pencil",
+    caption: "late night sketching",
+    rotate: -2,
+    objectPosition: "center 42%",
+  },
+  {
     id: "museum",
     src: "/about/life/museum.jpg",
     alt: "Walking through an art museum in front of a large painting",
