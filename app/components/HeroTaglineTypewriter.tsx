@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 const LINES = [
   "I see a problem.",
   "Get a little too excited.",
-  "And start designing.",
+  "And start designing :)",
 ] as const;
 
 const CHAR_MS = 40;
