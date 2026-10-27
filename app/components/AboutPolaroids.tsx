@@ -9,7 +9,6 @@ type Polaroid = {
   caption: string;
   rotate: number;
   objectPosition?: string;
-  photoClassName?: string;
 };
 
 const POLAROIDS: Polaroid[] = [
@@ -19,8 +18,7 @@ const POLAROIDS: Polaroid[] = [
     alt: "Pencil sketch of eyes in a wire-bound sketchbook with a blue drawing pencil",
     caption: "late night sketching",
     rotate: -2,
-    objectPosition: "50% 58%",
-    photoClassName: "about-polaroid-photo--sketch-night",
+    objectPosition: "50% 38%",
   },
   {
     id: "museum",
@@ -159,12 +157,10 @@ export default function AboutPolaroids() {
           {POLAROIDS.map((photo) => (
             <figure
               key={photo.id}
-              className={`about-polaroid${photo.id === "late-night-sketching" ? " about-polaroid--sketch-night" : ""}`}
+              className="about-polaroid"
               style={{ "--polaroid-rotate": `${photo.rotate}deg` } as React.CSSProperties}
             >
-              <div
-                className={`about-polaroid-photo${photo.photoClassName ? ` ${photo.photoClassName}` : ""}`}
-              >
+              <div className="about-polaroid-photo">
                 <Image
                   src={photo.src}
                   alt={photo.alt}

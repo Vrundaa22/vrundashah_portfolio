@@ -509,6 +509,10 @@ html[data-theme="dark"] .hero-eyebrow {
   display: block;
 }
 
+.hero-headline--typewriter .hero-tagline-cursor {
+  vertical-align: baseline;
+}
+
 @media (min-width: 901px) {
   .hero-headline-line {
     white-space: nowrap;

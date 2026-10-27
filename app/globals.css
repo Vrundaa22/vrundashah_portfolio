@@ -2107,16 +2107,6 @@ html[data-theme="dark"] .about-polaroid {
   object-fit: cover;
 }
 
-.about-polaroid-photo--sketch-night {
-  aspect-ratio: 9 / 14;
-  background: #f0f0f0;
-}
-
-.about-polaroid--sketch-night .about-polaroid-img {
-  object-fit: contain;
-  object-position: 50% 58%;
-}
-
 .about-polaroid-caption {
   margin: 0.55rem 0 0;
   padding: 0 0.15rem;

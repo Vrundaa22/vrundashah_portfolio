@@ -4,6 +4,7 @@ import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 import HeroClicks from "./HeroClicks";
 import HeroScotiaRole from "./HeroScotiaRole";
+import HeroTaglineTypewriter from "./HeroTaglineTypewriter";
 import PortfolioWhisper from "./PortfolioWhisper";
 import { getLatestPortfolioUpdate } from "@/lib/portfolio-updates";
 import { useTheme } from "../hooks/useTheme";
@@ -119,11 +120,7 @@ export default function HomeView() {
             <p className="hero-eyebrow">
               <span aria-hidden="true">👋</span> HII, I&apos;M VRUNDA
             </p>
-            <h1 className="hero-headline hero-headline--mockup">
-              <span className="hero-headline-line">I see a problem.</span>
-              <span className="hero-headline-line">Get a little too excited.</span>
-              <span className="hero-headline-line">And start designing.</span>
-            </h1>
+            <HeroTaglineTypewriter />
             <p className="hero-status">
               <time suppressHydrationWarning>{time || "—:—"}</time>
               <span className="hero-status-open">
