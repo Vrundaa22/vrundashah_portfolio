@@ -496,12 +496,12 @@ html[data-theme="dark"] .hero-eyebrow {
 
 .hero-headline--mockup {
   margin: 0;
-  max-width: min(18em, 100%);
+  max-width: min(12.5em, 100%);
   font-family: var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
-  font-size: clamp(1.85rem, 3.8vw, 2.65rem);
-  font-weight: 500;
+  font-size: clamp(2rem, 4.6vw, 3.05rem);
+  font-weight: 600;
   letter-spacing: -0.035em;
-  line-height: 1.22;
+  line-height: 1.14;
   color: #1a1a1a;
 }
 
@@ -542,6 +542,93 @@ html[data-theme="dark"] .hero-headline--mockup {
   font-weight: 400;
   letter-spacing: 0.01em;
   color: #9a9a9a;
+}
+
+/* Hero: typing role line (Product Design @ Scotia Digital) */
+
+.hero-role {
+  margin: clamp(0.85rem, 2vh, 1.15rem) 0 0;
+  min-height: 1.5em;
+  font-family: var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
+  font-size: clamp(0.95rem, 1.6vw, 1.08rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.45;
+  color: #9a9a9a;
+}
+
+html[data-theme="dark"] .hero-role {
+  color: #9a9a9a;
+}
+
+.hero-role-type {
+  display: inline;
+  vertical-align: baseline;
+}
+
+.hero-role .hero-brand--scotia {
+  font-size: inherit;
+  line-height: inherit;
+  vertical-align: baseline;
+}
+
+.hero-role-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 0.95em;
+  margin-left: 1px;
+  vertical-align: text-bottom;
+  background: #c8c8c8;
+  animation: heroRoleCursorBlink 0.9s step-end infinite;
+}
+
+@keyframes heroRoleCursorBlink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.hero-scotia-trigger {
+  display: inline;
+  position: relative;
+  cursor: default;
+  white-space: nowrap;
+}
+
+.hero-scotia-trigger:focus-visible {
+  outline: none;
+}
+
+.hero-scotia-trigger .hero-brand--scotia {
+  display: inline;
+  vertical-align: baseline;
+}
+
+.hero-scotia-logo {
+  position: absolute;
+  right: calc(100% + 0.35rem);
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+  transform: translateY(-50%) scale(0.88);
+  transition:
+    opacity 0.25s ease,
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.hero-role--ready:hover .hero-scotia-logo,
+.hero-scotia-trigger:hover .hero-scotia-logo,
+.hero-scotia-trigger:focus-visible .hero-scotia-logo {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+.hero-scotia-logo-img {
+  display: block;
+  width: 20px;
+  height: 20px;
 }
 
 .hero-brand {

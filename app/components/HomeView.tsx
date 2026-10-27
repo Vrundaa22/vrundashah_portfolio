@@ -3,6 +3,7 @@
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 import HeroClicks from "./HeroClicks";
+import HeroScotiaRole from "./HeroScotiaRole";
 import PortfolioWhisper from "./PortfolioWhisper";
 import { getLatestPortfolioUpdate } from "@/lib/portfolio-updates";
 import { useTheme } from "../hooks/useTheme";
@@ -119,11 +120,11 @@ export default function HomeView() {
               <span aria-hidden="true">👋</span> HII, I&apos;M VRUNDA
             </p>
             <h1 className="hero-headline hero-headline--mockup">
-              I see a problem,
+              I see a problem.
               <br />
-              get a little too excited,
+              Get a little too excited.
               <br />
-              and start designing :)
+              And start designing.
             </h1>
             <p className="hero-status">
               <time suppressHydrationWarning>{time || "—:—"}</time>
@@ -132,10 +133,7 @@ export default function HomeView() {
                 open to product experiences
               </span>
             </p>
-            <p className="hero-status-sub">
-              Product Design @{" "}
-              <span className="hero-brand hero-brand--scotia">Scotia Digital</span>
-            </p>
+            <HeroScotiaRole />
           </div>
 
           <HeroClicks />
