@@ -2108,11 +2108,13 @@ html[data-theme="dark"] .about-polaroid {
 }
 
 .about-polaroid-photo--sketch-night {
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 9 / 14;
+  background: #f0f0f0;
 }
 
 .about-polaroid--sketch-night .about-polaroid-img {
-  transform-origin: center 48%;
+  object-fit: contain;
+  object-position: 50% 58%;
 }
 
 .about-polaroid-caption {

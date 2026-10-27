@@ -9,7 +9,6 @@ type Polaroid = {
   caption: string;
   rotate: number;
   objectPosition?: string;
-  imageScale?: number;
   photoClassName?: string;
 };
 
@@ -20,8 +19,7 @@ const POLAROIDS: Polaroid[] = [
     alt: "Pencil sketch of eyes in a wire-bound sketchbook with a blue drawing pencil",
     caption: "late night sketching",
     rotate: -2,
-    objectPosition: "50% 54%",
-    imageScale: 1.38,
+    objectPosition: "50% 58%",
     photoClassName: "about-polaroid-photo--sketch-night",
   },
   {
@@ -173,10 +171,7 @@ export default function AboutPolaroids() {
                   fill
                   sizes="(max-width: 520px) 160px, 190px"
                   className="about-polaroid-img"
-                  style={{
-                    objectPosition: photo.objectPosition ?? "center center",
-                    transform: photo.imageScale ? `scale(${photo.imageScale})` : undefined,
-                  }}
+                  style={{ objectPosition: photo.objectPosition ?? "center center" }}
                 />
               </div>
               <figcaption className="about-polaroid-caption">{photo.caption}</figcaption>
