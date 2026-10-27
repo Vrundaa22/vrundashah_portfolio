@@ -9,6 +9,8 @@ type Polaroid = {
   caption: string;
   rotate: number;
   objectPosition?: string;
+  imageScale?: number;
+  photoClassName?: string;
 };
 
 const POLAROIDS: Polaroid[] = [
@@ -18,7 +20,9 @@ const POLAROIDS: Polaroid[] = [
     alt: "Pencil sketch of eyes in a wire-bound sketchbook with a blue drawing pencil",
     caption: "late night sketching",
     rotate: -2,
-    objectPosition: "center 42%",
+    objectPosition: "50% 54%",
+    imageScale: 1.38,
+    photoClassName: "about-polaroid-photo--sketch-night",
   },
   {
     id: "museum",
@@ -157,17 +161,22 @@ export default function AboutPolaroids() {
           {POLAROIDS.map((photo) => (
             <figure
               key={photo.id}
-              className="about-polaroid"
+              className={`about-polaroid${photo.id === "late-night-sketching" ? " about-polaroid--sketch-night" : ""}`}
               style={{ "--polaroid-rotate": `${photo.rotate}deg` } as React.CSSProperties}
             >
-              <div className="about-polaroid-photo">
+              <div
+                className={`about-polaroid-photo${photo.photoClassName ? ` ${photo.photoClassName}` : ""}`}
+              >
                 <Image
                   src={photo.src}
                   alt={photo.alt}
                   fill
                   sizes="(max-width: 520px) 160px, 190px"
                   className="about-polaroid-img"
-                  style={{ objectPosition: photo.objectPosition ?? "center center" }}
+                  style={{
+                    objectPosition: photo.objectPosition ?? "center center",
+                    transform: photo.imageScale ? `scale(${photo.imageScale})` : undefined,
+                  }}
                 />
               </div>
               <figcaption className="about-polaroid-caption">{photo.caption}</figcaption>
